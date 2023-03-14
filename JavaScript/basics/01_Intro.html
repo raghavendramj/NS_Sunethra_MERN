@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>JavaScript Introduction!</title>
+    <script>
+        function showDate() {
+          var spanElement = document.getElementById("dateSpan");
+          spanElement.innerHTML = new Date();
+        }
+  
+        // Callback function
+        function sayHello() {
+          //Alert -> function, which shows the content inside an alert BOX
+          alert("Great choice!, Welcome to JavaScript!");
+  
+          //console.log -> function, which shows the content in console
+          console.log("Great choice!, Welcome to JavaScript!");
+        }
+      </script>
+
+  </head>
+  <body>
+    <h2>Welcome to JavaScript?</h2>
+    <button id="btn" onclick="sayHello()">WelcomeJS</button>
+    <br />
+    <br />
+    <button id="btn" onclick="showDate()">Show Date</button>
+
+    <p>Today's Date is :- <span id="dateSpan"></span></p>
+
+   
+  </body>
+</html>

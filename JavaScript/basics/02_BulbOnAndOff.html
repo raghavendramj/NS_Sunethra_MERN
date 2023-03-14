@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Bulb On and Off</title>
+    <script>
+      function turnOn() {
+        var imageElement = document.getElementsByTagName("img")[0];
+        imageElement.src = "images/pic_bulbon.gif";
+      }
+
+      function turnOff() {
+        var imageElement = document.getElementsByTagName("img")[0];
+        imageElement.src = "images/pic_bulboff.gif";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Lets see what my JS can do?</h1>
+    <img src="images/pic_bulboff.gif" alt="" />
+    <br />
+    <br />
+    <button onclick="turnOn()">Turn On Light!</button>
+    <button onclick="turnOff()">Turn Off Light!</button>
+  </body>
+</html>
