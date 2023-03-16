@@ -1,0 +1,17 @@
+var result = 10;
+//var -> datatype
+//result -> variable name
+//10 -> value of the variable.
+
+
+
+cities1 ->   [ 'Bangalore', 'Chennai' ]
+
+cities2 = cities1;
+Below is the result of //cities2 = cities1
+cities1 ->   [ 'Bangalore', 'Chennai' ] <- cities2
+
+cities1 = [ 'Bangalore', 'Chennai' ]; //Redeclaration
+
+cities1 -> [ 'Bangalore', 'Chennai' ]; //Location 1
+cities2 -> [ 'Bangalore', 'Chennai' ]; //Location 2
