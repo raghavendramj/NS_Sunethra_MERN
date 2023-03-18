@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Query Selectors!</title>
+  </head>
+  <body>
+    <header>
+      <div id="companyName">QueryMe!</div>
+    </header>
+    <nav>
+      <ul>
+        <li class="menu-item"><a href="#home">Home</a></li>
+        <li class="menu-item"><a href="#services">Services</a></li>
+        <li class="menu-item"><a href="#about">About</a></li>
+        <li class="menu-item"><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>Welcome to Query Selector example</h1>
+      <div class="container">
+        <section class="sect">
+          <h2>UI/UX</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
+            placeat, atque accusamus voluptas laudantium facilis iure adipisci
+            ab veritatis eos neque culpa id nostrum tempora tempore minima.
+            Adipisci, obcaecati repellat.
+          </p>
+        </section>
+        <section class="sect">
+          <h2>Back End Development</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
+            placeat, atque accusamus voluptas laudantium facilis iure adipisci
+            ab veritatis eos neque culpa id nostrum tempora tempore minima.
+            Adipisci, obcaecati repellat.
+          </p>
+        </section>
+      </div>
+    </main>
+    <script>
+      //Universal Selectors
+      //   var firstFoundElement = document.querySelector("*");
+      //   console.log("Get first element  :- ", firstFoundElement);
+
+      //   var allElements = document.querySelectorAll("*");
+      //   console.log("All Elements :- ", allElements);
+
+      //Type Selector
+      //   var firstH2 = document.querySelector("h2");
+      //   console.log("firstH2  :- ", firstH2);
+
+      //   var allH2s = document.querySelectorAll("h2");
+      //   console.log("allH2s  :- ", allH2s);
+
+      // Class Selector
+      //   var firstSection = document.querySelector(".sect"); //Element
+      //   console.log("firstSection  :- ", firstSection);
+
+      //   var sections = document.querySelectorAll(".sect"); //NodeList
+      //   console.log("sections  :- ", sections);
+
+      // ID Selector
+      var firstDiv = document.querySelector("#companyName"); //Element
+      console.log("firstDiv  :- ", firstDiv);
+    </script>
+  </body>
+</html>

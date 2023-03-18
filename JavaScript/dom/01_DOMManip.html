@@ -59,8 +59,18 @@
         rates.forEach(function (rate) {
           if (rate.checked) {
             response.innerText = `You have selected ${rate.value}`;
-            response.style.color = "blue";
             response.style.fontSize = "30px";
+
+            console.log("rate.value :- ", rate.value);
+            if (rate.value === "Very Good") {
+              response.style.color = "green";
+            } else if (rate.value === "Very Poor") {
+              response.style.color = "red";
+            } else if (rate.value === "Poor") {
+              response.style.color = "orange";
+            } else {
+              response.style.color = "blue";
+            }
           }
         });
       });
