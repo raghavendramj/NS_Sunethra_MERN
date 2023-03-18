@@ -61,8 +61,20 @@
       //   console.log("sections  :- ", sections);
 
       // ID Selector
-      var firstDiv = document.querySelector("#companyName"); //Element
-      console.log("firstDiv  :- ", firstDiv);
+      //   var firstDiv = document.querySelector("#companyName"); //Element
+      //   console.log("firstDiv  :- ", firstDiv);
+
+      // Attribute Selector
+      var hrefElements = document.querySelectorAll("[href]"); //Element
+      console.log("hrefElements  :- ", hrefElements);
+
+      // [attribute] -> [href], [disabled]
+      // [attribute=value] -> [href='#home']
+      // [attribute~=value]
+      // [attribute|=value]
+      // [attribute^=value]
+      // [attribute$=value]
+      // [attribute*$*=value]
     </script>
   </body>
 </html>
