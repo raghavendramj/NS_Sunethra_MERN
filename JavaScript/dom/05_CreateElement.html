@@ -18,8 +18,8 @@
         newDiv.id = "contentDiv_" + noOfDivs;
         newDiv.innerHTML = "This is latestDiv of id contentDiv_" + noOfDivs;
 
-        //Appending the new Element
-        lastDiv.appendChild(newDiv);
+        //Appending the new Element after the div
+        lastDiv.after(newDiv);
       });
     </script>
   </body>

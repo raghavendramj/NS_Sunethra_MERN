@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Append Child</title>
+  </head>
+  <body>
+    <h1>Append Child Example</h1>
+
+    <ul></ul>
+
+    <label for="menu-item">Enter Menu Name :- </label>
+    <input type="text" id="menuName" />
+    <br />
+    <br />
+    <button>Press Enter to Add to Menu</button>
+    <script>
+      let btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        //New Element Creation
+        let newLi = document.createElement("li");
+        newLi.className = "menu-item";
+        newLi.textContent = document.getElementById("menuName").value;
+        // newLi.innerHTML = document.getElementById("menuName").value;
+        // newLi.innerText = document.getElementById("menuName").value;
+
+        //Append Child Example
+        let ul = document.querySelector("ul");
+        ul.appendChild(newLi);
+      });
+    </script>
+  </body>
+</html>
