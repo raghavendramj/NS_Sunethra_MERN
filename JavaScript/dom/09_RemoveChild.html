@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Remove Child Element</title>
+  </head>
+  <body>
+    <h1>Remove Child Example</h1>
+    <ul id="menu">
+      <li>Home</li>
+      <li>Products</li>
+      <li>Contact Us</li>
+      <li>Gallery</li>
+      <li>About Us</li>
+    </ul>
+    <button>Remove Last Child</button>
+    <script>
+      let btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        //Append Child Example
+        let ul = document.querySelector("ul");
+        ul.removeChild(ul.lastElementChild);
+
+        //Removes all the children
+        // while (ul.firstChild) {
+        //   ul.removeChild(ul.firstChild);
+        // }
+      });
+    </script>
+  </body>
+</html>

@@ -3,18 +3,24 @@
     <title>Append and Prepend Element</title>
   </head>
   <body>
+    <h2>
+      Prepend - insert a node before the first child node of a parent node.
+    </h2>
     <h1>Append and Prepend Example</h1>
+    <h2>Append - insert a node after the last child node of a parent node</h2>
     <button id="append">Append Element</button>
     <button id="prepend">Prepend Element</button>
     <script>
       let appendBtn = document.querySelector("#append");
       appendBtn.addEventListener("click", function () {
+
         //New Element Creation
         let appendDiv = document.createElement("div");
         appendDiv.className = "appendDiv";
         appendDiv.style.fontSize = "20px";
         appendDiv.style.color = "blue";
-        appendDiv.innerHTML = "Appending New Division!";
+        let nextDivNum = document.querySelectorAll(".appendDiv").length + 1;
+        appendDiv.innerHTML = "Appending New Division_" + nextDivNum;
 
         //Append Child Example
         let h1 = document.querySelector("h1");
@@ -28,7 +34,8 @@
         prependDiv.className = "prependDiv";
         prependDiv.style.fontSize = "25px";
         prependDiv.style.color = "red";
-        prependDiv.innerHTML = "Prepending New Division!";
+        let nextDivNum = document.querySelectorAll(".prependDiv").length + 1; 
+        prependDiv.innerHTML = "Prepending New Division_" + nextDivNum;
 
         //Append Child Example
         let h1 = document.querySelector("h1");

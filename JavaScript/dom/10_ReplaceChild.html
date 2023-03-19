@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Replace Child Element</title>
+  </head>
+  <body>
+    <h1>Replace Child Example</h1>
+    <ul id="menu">
+      <li>Home</li>
+      <li>Products</li>
+      <li>Contact Us</li>
+      <li>Gallery</li>
+      <li>About Us</li>
+    </ul>
+    <button>Replace Child</button>
+    <script>
+      let btn = document.querySelector("button");
+      var counter = 0;
+      btn.addEventListener("click", function () {
+        var newLi = document.createElement("li");
+        newLi.className = "menu-item";
+        newLi.style.color = "red";
+        newLi.style.fontSize = "20px";
+        newLi.textContent = "Login";
+
+        //Append Child Example
+        let ul = document.querySelector("ul");
+        ul.replaceChild(newLi, ul.children[counter++]);
+      });
+    </script>
+  </body>
+</html>
