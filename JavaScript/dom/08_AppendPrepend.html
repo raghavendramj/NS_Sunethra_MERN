@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Append and Prepend Element</title>
+  </head>
+  <body>
+    <h1>Append and Prepend Example</h1>
+    <button id="append">Append Element</button>
+    <button id="prepend">Prepend Element</button>
+    <script>
+      let appendBtn = document.querySelector("#append");
+      appendBtn.addEventListener("click", function () {
+        //New Element Creation
+        let appendDiv = document.createElement("div");
+        appendDiv.className = "appendDiv";
+        appendDiv.style.fontSize = "20px";
+        appendDiv.style.color = "blue";
+        appendDiv.innerHTML = "Appending New Division!";
+
+        //Append Child Example
+        let h1 = document.querySelector("h1");
+        h1.append(appendDiv);
+      });
+
+      let prependBtn = document.querySelector("#prepend");
+      prependBtn.addEventListener("click", function () {
+        //New Element Creation
+        let prependDiv = document.createElement("div");
+        prependDiv.className = "prependDiv";
+        prependDiv.style.fontSize = "25px";
+        prependDiv.style.color = "red";
+        prependDiv.innerHTML = "Prepending New Division!";
+
+        //Append Child Example
+        let h1 = document.querySelector("h1");
+        h1.prepend(prependDiv);
+      });
+    </script>
+  </body>
+</html>
