@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>DOM Manipulation - Child Nodes</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li class="first">Home</li>
+      <li>Products</li>
+      <li class="mid">Customer Support</li>
+      <li>Carrers</li>
+      <li>News</li>
+      <li class="last">About Us</li>
+    </ul>
+    <script>
+      let menuElement = document.querySelector("#menu");
+      console.log("First Child's node name is :- ", menuElement.firstChild); //Object-> Node
+      console.log("Last Child's node name is :- ", menuElement.lastChild); //Object-> Node
+
+      console.log("First Child's element is:-", menuElement.firstElementChild); //Element
+      console.log("Last Child's element is :- ", menuElement.lastElementChild); //Element
+
+      console.log("All children under menu is :- ", menuElement.children); //HTMLCollection
+      console.log("menuElement.children[5] :- ", menuElement.children[5]); //5th HTMLElement
+    </script>
+  </body>
+</html>
