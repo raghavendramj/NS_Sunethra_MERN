@@ -20,7 +20,25 @@
       console.log("Last Child's element is :- ", menuElement.lastElementChild); //Element
 
       console.log("All children under menu is :- ", menuElement.children); //HTMLCollection
-      console.log("menuElement.children[5] :- ", menuElement.children[5]); //5th HTMLElement
+      console.log("menuElement.children[5] :- ", menuElement.children[5]); //5th HTMLElement 
+
+      let firstChildElement = menuElement.firstElementChild;
+      console.log("firstChildElement :- ", firstChildElement);
+
+      let lastChildElement = menuElement.lastElementChild;
+      console.log("lastChildElement :- ", lastChildElement);
+
+      let firstElement = document.querySelector(".first");
+      while (firstElement) {
+        console.log("NEXT::currentElement :- ", firstElement);
+        firstElement = firstElement.nextElementSibling; //Gets Next Sibling Element
+      }
+
+      let lastElement = document.querySelector(".last");
+      while (lastElement) {
+        console.log("PREVIOUS::currentElement :- ", lastElement); 
+        lastElement = lastElement.previousElementSibling; //Gets Previous Sibling Element
+      }
     </script>
   </body>
 </html>
