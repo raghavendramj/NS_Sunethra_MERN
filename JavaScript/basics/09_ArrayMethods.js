@@ -41,3 +41,5 @@ function addRemoveElementsFromBeginning(){
   console.log("******** Aftr Shifting/Removing (2) :- ", people); 
 }
 addRemoveElementsFromBeginning();
+
+//Added now!
