@@ -98,6 +98,24 @@ function spliceMethods() {
   console.log("3. Cities before removal :- ", cities);
   cities.splice(1, 3, "Kochi");
   console.log("3. cities.splice(1, 3, 'Kochi') :- ", cities);
-
 }
-spliceMethods();
+// spliceMethods();
+
+function sliceMethodExample() {
+  var cities = ["Bangalore", "Mysore", "Chennai"];
+  //start -> inclusive 0
+  //end  -> exclusive 3
+  //0th 1st 2nd 3rd[IGNORED]
+  console.log("cities.slice(0, 2) :- ", cities.slice(0, 2)); //"Bangalore"[0], "Mysore"[1]
+  //If beginIndex or endIndex is negative then it is treated as
+  // beginIndex = str.length + beginIndex
+  // endIndex   = str.length + endIndex`
+  //3 + (-1) = 2 //END INDEX
+  //3 + (-2) = 1 //START INDEX`
+  //cities.slice(0, -1) -> cities.slice(0, 2) -> //"Bangalore"[0], "Mysore"[1]
+  //cities.slice(-2, -1) -> cities.slice(1, 2) -> //"Mysore"[1]
+  console.log("cities.slice(0, -1) :- ", cities.slice(0, -1)); //cities.slice(0, 2)
+  console.log("cities.slice(-2, -1) :- ", cities.slice(-2, -1)); //cities.slice(1, 2)
+}
+
+sliceMethodExample();
