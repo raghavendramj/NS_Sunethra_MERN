@@ -20,7 +20,7 @@ function addRemoveElementsFromEnd() {
   console.log("******** Before Push :- ", people);
   people.push("Rishabh"); //Add Element at the end
   people.push("Praneeth"); //Add Element at the end
-  console.log("******** After Push :- ", people); 
+  console.log("******** After Push :- ", people);
   people.pop();
   people.pop();
   console.log("******** After Poping 2 elements :- ", people);
@@ -28,18 +28,42 @@ function addRemoveElementsFromEnd() {
 
 // addRemoveElementsFromEnd();
 
-function addRemoveElementsFromBeginning(){
+function addRemoveElementsFromBeginning() {
   var people = ["Rishabh", "Praneeth"];
   console.log("******** Before Unshifting/Adding :- ", people);
   people.unshift("John"); //Add Element at the front
   people.unshift("Adam"); //Add Element at the front
   people.unshift("Mathew"); //Add Element at the front
-  console.log("******** Before Shifting/Removing :- ", people); 
+  console.log("******** Before Shifting/Removing :- ", people);
 
   people.shift(); //Removes element from the front
   people.shift(); //Removes element from the front
-  console.log("******** Aftr Shifting/Removing (2) :- ", people); 
+  console.log("******** Aftr Shifting/Removing (2) :- ", people);
 }
-addRemoveElementsFromBeginning();
+// addRemoveElementsFromBeginning();
 
-//Added now!
+function deleteMethod() {
+  var students = ["Vaibhav", "Nishanth", "Akasah", "Ashwin"];
+  console.log("******** Before deleting elements :- ", students);
+  delete students[2];
+  console.log("After deleting 1 element :- ", students);
+}
+
+// deleteMethod();
+
+function arrayMergeMethod() {
+  var students_fir = ["Vaibhav", "Nishanth"];
+  var students_sec = ["Akasah", "Ashwin"];
+  var clubbedArr = students_fir.concat(students_sec);
+  console.log("2 Clubbed arrays are :- ", clubbedArr);
+  var students_thir = ["Aditya", "Rajesh"];
+  console.log("3 Clubbed arrays are_v1 :- ", clubbedArr.concat(students_thir));
+  console.log("3 Clubbed arrays are_v2 :- ", students_fir.concat(students_sec).concat(students_thir));
+}
+arrayMergeMethod();
+
+  function arrayJoinMethod() {
+    var students = ["Vaibhav", "Nishanth", "Akasah", "Ashwin"]; 
+    console.log("Joined array is :- ", students.join(" <---> ")); //converts an array into a string
+  }
+// arrayJoinMethod();
