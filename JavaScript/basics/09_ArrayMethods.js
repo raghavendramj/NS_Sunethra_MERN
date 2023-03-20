@@ -58,12 +58,46 @@ function arrayMergeMethod() {
   console.log("2 Clubbed arrays are :- ", clubbedArr);
   var students_thir = ["Aditya", "Rajesh"];
   console.log("3 Clubbed arrays are_v1 :- ", clubbedArr.concat(students_thir));
-  console.log("3 Clubbed arrays are_v2 :- ", students_fir.concat(students_sec).concat(students_thir));
+  console.log(
+    "3 Clubbed arrays are_v2 :- ",
+    students_fir.concat(students_sec).concat(students_thir)
+  );
 }
-arrayMergeMethod();
+// arrayMergeMethod();
 
-  function arrayJoinMethod() {
-    var students = ["Vaibhav", "Nishanth", "Akasah", "Ashwin"]; 
-    console.log("Joined array is :- ", students.join(" <---> ")); //converts an array into a string
-  }
+function arrayJoinMethod() {
+  var students = ["Vaibhav", "Nishanth", "Akasah", "Ashwin"];
+  console.log("Joined array is :- ", students.join(" <---> ")); //converts an array into a string
+}
 // arrayJoinMethod();
+
+function spliceMethods() {
+  //splice(start: number, deleteCount?: number | undefined): string[]
+  // start -> Starting index for addition/removal
+  // deleteCount -> no of elements to delete
+  // 3rd and afterwards.... -> elements that needs to be added.
+
+  //1. Addition of new elements
+  //2. Removal of elements
+  //3. Addition and removal together.
+
+  //Case 1 - Removal ONLY
+  var cities = ["Bangalore", "Mysore", "Chennai", "Mumbai", "Kolkota"];
+  console.log("1. Cities before removal :- ", cities);
+  cities.splice(1, 2); //start-> 1, deleteCount -> 2 //'Mysore', 'Chennai' are removed
+  console.log("1. cities.splice(1, 2) :- ", cities);
+
+  //Case 2 - Addition ONLY
+  cities = ["Bangalore", "Mysore", "Chennai"];
+  console.log("2. Cities before removal :- ", cities);
+  cities.splice(1, 0, "Kochi", "Delhi");
+  console.log("2. cities.splice(1, 0, 'Kochi', 'Delhi') :- ", cities);
+
+  //Case 3 - Removal + Addition
+  cities = ["Bangalore", "Mysore", "Chennai", "Mumbai", "Kolkota"];
+  console.log("3. Cities before removal :- ", cities);
+  cities.splice(1, 3, "Kochi");
+  console.log("3. cities.splice(1, 3, 'Kochi') :- ", cities);
+
+}
+spliceMethods();
