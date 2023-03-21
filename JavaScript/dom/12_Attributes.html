@@ -13,14 +13,14 @@
     />
     <script>
       var inp = document.querySelector("input");
-      console.log("input.disabled :- ", inp.disabled);
-      console.log("input.type :- ", inp.type);
-      console.log("input.name :- ", inp.name);
-      console.log("input.id :- ", inp.id);
+      console.log("1. input.disabled :- ", inp.disabled);
+      console.log("2. input.type :- ", inp.type);
+      console.log("3. input.name :- ", inp.name);
+      console.log("4. input.id :- ", inp.id);
 
       console.log("\n\nPrinting all the attributes.../");
       for (let eachAttr of inp.attributes) {
-        console.log(`${eachAttr.name} = ${eachAttr.value}`);
+        console.log(`Attribute :: ${eachAttr.name} = ${eachAttr.value}`);
       }
       var styleAttr = inp.style;
       console.log("styleAttr :- ", styleAttr);
