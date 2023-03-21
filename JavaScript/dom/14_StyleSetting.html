@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Style Setting</title>
+  </head>
+  <body>
+    <h1>Style Setting Example!</h1>
+    <div>This is a dummy div</div>
+    <p>This is a all about styles</p>
+    <button>Change Style</button>
+    <script>
+      var btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        var div = document.querySelector("div");
+        div.style.cssText = "color:red";
+
+        setTimeout(function () {
+          div.setAttribute("style", "background-color:yellow");
+        }, 1000);
+
+        setTimeout(function () {
+          div.style.color = "blue";
+          div.style.fontSize = "20px";
+        }, 2000);
+
+        setTimeout(function () {
+          var para = document.querySelector("p");
+          css(para, {
+            background: "steelblue",
+            border: "solid 1px red",
+            color: "white",
+          });
+        }, 3000);
+      });
+
+      function css(element, styles) {
+        for (var prop in styles) {
+          element.style[prop] = styles[prop];
+        }
+      }
+    </script>
+  </body>
+</html>
