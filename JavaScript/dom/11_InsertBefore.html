@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Insert Before Element</title>
+  </head>
+  <body>
+    <h1>Insert Before Example</h1>
+    <button>Insert Before Element</button>
+    <button>Insert After Element</button>
+    <ul id="menu">
+      <li>Home</li>
+      <li>Products</li>
+      <li>Contact Us</li>
+      <li>Gallery</li>
+      <li>About Us</li>
+    </ul>
+    <script>
+      var beforeBtn = document.querySelector("button");
+      var counter = 0;
+      beforeBtn.addEventListener("click", function () {
+        var newLi = document.createElement("li");
+        newLi.className = "menu-item";
+        newLi.textContent = "Contents_" + counter++;
+        newLi.style.color = "blue";
+        newLi.style.fontSize = "20px";
+        newLi.style.fontWeight = "bold";
+
+        //Insert before Child Example
+        var childLi = document.querySelector("ul > :nth-child(2)");
+        var parent = document.querySelector("ul");
+        parent.insertBefore(newLi, childLi);
+      });
+
+      var afterBtn = document.querySelectorAll("button")[1];
+      afterBtn.addEventListener("click", function () {
+        var newLi = document.createElement("li");
+        newLi.className = "menu-item";
+        newLi.textContent = "Courses_" + counter++;
+        newLi.style.color = "red";
+        newLi.style.fontSize = "20px";
+        newLi.style.fontWeight = "bold";
+
+        //Insert before Child Example
+        var childLi = document.querySelector("ul > :nth-last-child(2)");
+        var parent = document.querySelector("ul");
+        parent.insertBefore(newLi, childLi);
+      });
+    </script>
+  </body>
+</html>
