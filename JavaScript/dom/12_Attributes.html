@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Working with attributes</title>
+  </head>
+  <body>
+    <h1>Working with attributes</h1>
+    <input
+      type="text"
+      name="dummy"
+      id="dummyId"
+      style="color: red; border: '1px solid blue'"
+      data-progress="pending"
+    />
+    <script>
+      var inp = document.querySelector("input");
+      console.log("input.disabled :- ", inp.disabled);
+      console.log("input.type :- ", inp.type);
+      console.log("input.name :- ", inp.name);
+      console.log("input.id :- ", inp.id);
+
+      console.log("\n\nPrinting all the attributes.../");
+      for (let eachAttr of inp.attributes) {
+        console.log(`${eachAttr.name} = ${eachAttr.value}`);
+      }
+      var styleAttr = inp.style;
+      console.log("styleAttr :- ", styleAttr);
+      var dataset = inp.dataset;
+      console.log("dataset :- ", dataset);
+    </script>
+  </body>
+</html>
