@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>One Off Event</title>
+  </head>
+  <body>
+    <h1>One Off Event</h1> 
+    <button>Only once you get this alert!</button> 
+    <script>
+      var btn = document.querySelector("button");
+      function onClickHandler() {
+        alert("Button is clicked!");
+      }
+      btn.addEventListener("click", onClickHandler, { once: true });
+    </script>
+  </body>
+</html>

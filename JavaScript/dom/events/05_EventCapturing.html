@@ -25,19 +25,19 @@
       var span = document.querySelector("span");
       var btn = document.querySelector("button");
 
-      division.addEventListener("click", function () {
-        console.log("Capturing::Div is clicked!");
+      division.addEventListener("click", function (e) {
+        console.log("Capturing::Div is clicked!"); 
       }, true);
 
-      para.addEventListener("click", function () {
-        console.log("Capturing::para is clicked!");
+      para.addEventListener("click", function (e) {
+        console.log("Capturing::para is clicked!"); 
       }, true);
 
-      span.addEventListener("click", function () {
+      span.addEventListener("click", function (e) {
         console.log("Capturing::span is clicked!");
       }, true);
 
-      btn.addEventListener("click", function () {
+      btn.addEventListener("click", function (e) {
         console.log("Capturing::btn is clicked!");
       }, true); 
     </script>

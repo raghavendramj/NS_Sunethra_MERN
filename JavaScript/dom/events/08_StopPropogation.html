@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>HTML Stop Propogation</title>
+  </head>
+  <body>
+    <h1>HTML Stop Propogation</h1>
+    <div style="border: 1px solid red; padding: 15px">
+      <p style="border: 1px solid blue; padding: 15px">
+        <span style="border: 1px solid grey; padding: 10px">
+          <button>Bubble Up!</button>
+        </span>
+      </p>  
+    </div>
+    <!-- When you click the button, the click event occurs in the following order:
+       BUBBLING
+    ----------
+    1. button
+    2. span
+    3. para
+    4. div 
+    -->
+
+    <script>
+      var division = document.querySelector("div");
+      var para = document.querySelector("p");
+      var span = document.querySelector("span");
+      var btn = document.querySelector("button");
+
+      division.addEventListener("click", function (event) {
+        console.log("Bubbling::Div is clicked!");
+      });
+
+      para.addEventListener("click", function (event) {
+        console.log("Bubbling::para is clicked!");
+      });
+
+      span.addEventListener("click", function (event) {
+        console.log("Bubbling::span is clicked!");
+        event.stopPropagation(); 
+        //Stops the event bubbling to the top of the tree..
+        //Stops the event capturing to the leaf of the tree..
+      });
+
+      btn.addEventListener("click", function (event) {
+        console.log("Bubbling::btn is clicked!");
+        
+      }); 
+    </script>
+  </body>
+</html>

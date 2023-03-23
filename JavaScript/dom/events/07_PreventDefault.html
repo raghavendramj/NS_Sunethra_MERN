@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Prevent Default</title>
+  </head>
+  <body>
+    <h1>Prevent Default Action of Events</h1>
+    <p>
+      The preventDefault() method cancels the event if it is cancelable, meaning
+      that the default action that belongs to the event will not occur.
+    </p>
+    <input type="checkbox" name="agree" id="agree" />Agree
+    <br />
+    <br />
+    <a href="https://www.google.com" target="_blank">Open Google</a>
+
+    <script>
+      var agree = document.querySelector("#agree");  
+      agree.addEventListener("click", function (event) {
+        console.log("input:checkbox is clicked!");
+        event.preventDefault(); //This will never make check box check
+      });
+
+      var link = document.querySelector("a");
+      link.addEventListener("click", function (event) {
+        console.log("Link clicked!");
+        event.preventDefault(); //This will never the link to open google.com
+      });
+    </script>
+  </body>
+</html>
