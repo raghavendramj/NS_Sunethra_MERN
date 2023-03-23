@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>HTML Event Capturing</title>
+  </head>
+  <body>
+    <h1>HTML Event Capturing</h1>
+    <div style="border: 1px solid red; padding: 15px">
+      <p style="border: 1px solid blue; padding: 15px">
+        <span style="border: 1px solid grey; padding: 10px">
+          <button>Capturing</button>
+        </span>
+      </p> 
+    </div>
+    <!-- When you click the button, the click event occurs in the following order:
+    1. button
+    2. span
+    3. para
+    4. div -->
+
+    <script>
+      var division = document.querySelector("div");
+      var para = document.querySelector("p");
+      var span = document.querySelector("span");
+      var btn = document.querySelector("button");
+
+      division.addEventListener("click", function () {
+        console.log("Capturing::Div is clicked!");
+      }, true);
+
+      para.addEventListener("click", function () {
+        console.log("Capturing::para is clicked!");
+      }, true);
+
+      span.addEventListener("click", function () {
+        console.log("Capturing::span is clicked!");
+      }, true);
+
+      btn.addEventListener("click", function () {
+        console.log("Capturing::btn is clicked!");
+      }, true); 
+    </script>
+  </body>
+</html>

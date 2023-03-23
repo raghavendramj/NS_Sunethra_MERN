@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Attaching the event using JS</title>
+  </head>
+  <body>
+    <h1>Attaching the Event via JS</h1>
+    <button onclick="attachMouseOver()">Attached Mouseover Event</button> 
+    <script>
+      function attachMouseOver() {
+        console.log("Click event is triggered!");
+
+        var counter = 0;
+        // var btn = document.getElementsByTagName("button")[0]
+        var btn = document.querySelector("button"); //First matching button element
+
+        //Javascript way of attaching the event for an element!
+        btn.addEventListener("mouseover", function () {
+          console.log("Mouse hovered!_", counter++);
+        });
+      }
+    </script>
+  </body>
+</html>

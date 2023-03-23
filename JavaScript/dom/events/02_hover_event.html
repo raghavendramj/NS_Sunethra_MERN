@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Hover Event In Detail</title>
+  </head>
+  <body>
+    <h1>Mouseover Example</h1>
+
+    <button onmouseover="issueAlert()">Hover on me to get an alert!</button>
+
+    <script>
+      function issueAlert() {
+        var button = document.querySelector("button");
+        button.style.color = "red"; 
+        alert("Mouse hovered!, Thank you!");
+      }
+
+    </script>
+  </body>
+</html>
