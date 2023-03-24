@@ -21,5 +21,5 @@ function setTimeoutExample() {
 // |  
 // -------------
 // CALL_STACK 
-// WEB_APIs  -> start timer -> 
+// WEB_APIs  -> start timer -> after timer completes it pushes the code of setimeout callback to CB_Queue
 // CallBack_Queue  -> console.log("2. Two");

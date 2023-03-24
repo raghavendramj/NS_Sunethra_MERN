@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Simple Stop Watch</title>
+  </head>
+  <body>
+    <h1>Simple Stop Watch Example!</h1>
+    <div>
+      Timer :-
+      <span></span>
+    </div>
+    <br />
+    <button onclick="startTimer()">Start Timer</button>
+    <button>Pause Timer</button>
+    <button>Resume Timer</button>
+    <button>Stop Timer</button>
+    <button>Reset Timer</button>
+    <script>
+      var timer = 0;
+      function startTimer() {
+        setInterval(function () {
+          var span = document.querySelector("span");
+          span.innerHTML = timer++;
+        }, 200);
+      }
+    </script>
+  </body>
+</html>

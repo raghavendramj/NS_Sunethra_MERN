@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Simple Set Interval</title>
+  </head>
+  <body>
+    <h1>Date and Time Example!</h1>
+    <div>
+      Current Date and Time :-
+      <p>
+        <span></span>
+      </p>
+    </div>
+    <script>
+      setInterval(function () {
+        var span = document.querySelector("span");
+        span.innerHTML = new Date();
+      }, 1000);
+    </script>
+  </body>
+</html>
