@@ -8,19 +8,34 @@
       Timer :-
       <span></span>
     </div>
+    <div>Timer stopped at :- <span id="stopedTime"></span></div>
     <br />
     <button onclick="startTimer()">Start Timer</button>
-    <button>Pause Timer</button>
-    <button>Resume Timer</button>
-    <button>Stop Timer</button>
-    <button>Reset Timer</button>
+    <button onclick="stopTimer(false)">Pause Timer</button>
+    <button onclick="stopTimer(true)">Stop Timer</button>
+    <button onclick="resetTimer(true)">Reset Timer</button>
     <script>
       var timer = 0;
+      let intervalObj;
       function startTimer() {
-        setInterval(function () {
+        intervalObj = setInterval(function () {
           var span = document.querySelector("span");
           span.innerHTML = timer++;
         }, 200);
+      }
+      function stopTimer(reset) {
+        clearInterval(intervalObj);
+        document.querySelector("#stopedTime").innerHTML = timer;
+        if (reset) {
+          timer = 0;
+          document.querySelector("span").innerHTML = timer;
+        }
+      }
+      function resetTimer(reset) {
+        clearInterval(intervalObj);
+        timer = 0;
+        document.querySelector("#stopedTime").innerHTML = timer;
+        document.querySelector("span").innerHTML = timer;
       }
     </script>
   </body>
