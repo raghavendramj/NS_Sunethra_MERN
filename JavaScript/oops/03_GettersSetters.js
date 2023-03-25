@@ -5,21 +5,24 @@ function Product(price, brand, model) {
   this.model = model;
 
   //Private variable
-  var stocks = 10;
+  var stocks = 10; 
 
   Object.defineProperty(this, "stks_avail", {
     //Getter for stocks
-    get: function () { 
+    get: function () {
       return stocks;
     },
     set: function (value) {
+      //Check 1 - Value
       if (value === "" || value === "undefined" || value === undefined) {
         throw Error("Invalid stock information");
       }
 
+      //Check 2 - Type
       if (typeof value !== "number") {
         throw Error("Invalid stock information - Its not a number");
       }
+
       console.log("Adding new ", value, "stocks !");
       stocks += value;
     },
