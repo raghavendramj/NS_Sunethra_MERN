@@ -19,21 +19,30 @@ function protoBasics() {
 // protoBasics();
 
 function inheritence() {
-  function Product(brand, price) {
-    this.brand = brand;
+
+  //Prototype -> Object
+  function Car(type, fuelType) {
+    this.type = type;
+    this.fuelType = fuelType;
+  }
+
+  function DefinePrice(price) {
+    Car.call(this, "convertible", "diesel");
+    console.log(`Before Car details :- `, this);
     this.price = price;
-  }
+    console.log(`After Car details :- `, this);
+  } 
 
-  function Mobile(brand, price, model, variant) {
-    Mobile.call(this, brand, price);
-    this.model = model;
-    this.variant = variant;
-  }
+  console.log("DefinePrice.prototype :- ", DefinePrice.prototype);
+  console.log("DefinePrice.prototype.constructor :- ", DefinePrice.prototype.constructor);
 
-  Mobile.prototype = Product.prototype;
-  Mobile.prototype = new Product();
+  //We achieved inheritence
+  DefinePrice.prototype = new Car();
+  DefinePrice.prototype.constructor = DefinePrice;
 
-  var apple = new Mobile("Apple", 50000, "IPhone", "14Plus");
-  console.log("Apple is :- ", apple);
+  console.log("DefinePrice.prototype :- ", DefinePrice.prototype);
+  console.log("DefinePrice.prototype.constructor :- ", DefinePrice.prototype.constructor); 
+  
+  var newCarPrice = new DefinePrice(10000); 
 }
 inheritence();
