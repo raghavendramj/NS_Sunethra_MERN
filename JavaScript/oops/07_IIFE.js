@@ -23,3 +23,13 @@ addNumbers(12, 34);
   console.log("IIFE :- Result :- ", result);
   return result;
 })(24, 56);
+
+//Polluting global variables.
+var counter = 0;
+console.log("1. Counter :- ", counter);
+function test() {
+  var counter = 12;
+  console.log("2. Counter :- ", counter);
+}
+test();
+console.log("3. Counter :- ", counter);
