@@ -18,6 +18,7 @@ console.log("Sum via addition(10, 20) :- ", addition(10, 20));
 var emptyObject = {};
 var addResult = addition.call(emptyObject, 10, 20);
 console.log("addition.call({}, 10, 20) :- ", addResult);
+console.log("addition.apply({}, 10, 20) :- ", addition.apply(emptyObject, [10, 20]));
 //---------------------------------------------------
 
 function subtraction(a) {
