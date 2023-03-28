@@ -1,0 +1,17 @@
+function Shape(color) {
+  this.color = color;
+}
+
+function Circle(radius, color) {
+  Shape.call(this, color); //LINE 1
+  this.radius = radius;
+}
+
+Circle.prototype = new Shape(); //LINE 2
+Circle.prototype.constructor = Circle; //LINE 3
+
+var shape = new Shape("Red");
+console.log("Shape :- ", shape);
+
+var circle = new Circle(10, "Yellow");
+console.log("circle :- ", circle);
