@@ -1,0 +1,52 @@
+#container {
+    max-width: 400px;
+    margin: 10vh auto 0 auto;
+    box-shadow: 0px 0px 43px 17px rgb(154, 154, 154);
+  }
+
+  .buttons {
+    display: grid;
+    border-bottom: 1px solid #999;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  button {
+    border: 0.5px solid #999;
+    line-height: 100px;
+    text-align: center;
+    font-size: 35px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #362222;
+    color: white;
+    font-size: 35px;
+    transition: 1 ease-in-out;
+  }
+
+  #display {
+    border: 0.5px solid #999;
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+    padding: 16px 8px;
+    font-size: 50px;
+    color: blue;
+  }
+
+  #equals{
+    background-color: #0c925a;
+    color: white;
+    font-size: 55px;
+    transition: 1 ease-in-out; 
+  }
+
+  footer{
+    position: absolute;
+    background-color: #999;
+    font-size: 30px;
+    width: 98%;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    bottom: 0;
+  }
