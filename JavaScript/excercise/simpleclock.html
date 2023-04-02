@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Simple Clock</title>
+    <style>
+      div {
+        width: 600px;
+        height: 200px;
+        background-color: black;
+      }
+      span {
+        color: white;
+        font-size: 100px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Clock!</h1>
+    <div>
+      <span id="hour">00</span>
+      <span>:</span>
+      <span id="minute">00</span>
+      <span>:</span>
+      <span id="second">00</span>
+      <span>:</span>
+      <span id="amOrPm">00</span>
+    </div>
+    <script>
+      setInterval(function () {
+        let date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
+        document.querySelector("#minute").innerHTML = minute;
+        document.querySelector("#second").innerHTML = second;
+        let amOrPm = "";
+        if (hour > 12) {
+          amOrPm = "PM";
+          hour = Math.abs(12 - hour);
+        } else {
+          amOrPm = "AM";
+        }
+        document.querySelector("#hour").innerHTML = hour;
+        document.querySelector("#amOrPm").innerHTML = amOrPm;
+      }, 1000);
+    </script>
+  </body>
+</html>
