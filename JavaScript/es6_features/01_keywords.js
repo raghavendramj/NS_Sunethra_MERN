@@ -28,7 +28,7 @@ function hoistingVarTest() {
   console.log("3. Hoisting :: Number :- ", number);
 }
 
-hoistingVarTest();
+// hoistingVarTest();
 
 function addNumbers() {
   debugger;
@@ -43,4 +43,14 @@ function addNumbers() {
   var c = a + b;
   console.log("Finally C :-", c);
 }
-addNumbers();
+// addNumbers();
+
+function letHoistTest() {
+  console.log("1. My number :- ", myNumber); //Cannot access 'myNumber' before initialization
+  let myNumber; 
+  console.log("2. My number :- ", myNumber); 
+  myNumber = 23;
+  console.log("3. My number :- ", myNumber);
+}
+
+letHoistTest();
