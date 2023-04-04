@@ -20,5 +20,11 @@ function constArrayTest() {
 function constObjectTest() {
   const car = { type: "Fiat", model: "500", color: "white" };
   console.log("1. car :-", car);
+  car.color = "Red"; //Valid
+  console.log("2. car :-", car);
+  car["model"] = "Punto"; //Valid
+  console.log("3. car :-", car);
+  car = { type: "Fiat", model: "500", color: "white" }; //TypeError: Assignment to constant variable.
+  console.log("4. car :-", car);
 }
-constArrayTest();
+constObjectTest();
