@@ -51,7 +51,7 @@ function filterFunctionExample() {
   let evenNumbersES6 = numbers.filter(isEvenNumPredicate);
   console.log("2. Even Number :- ", evenNumbersES6);
 }
-filterFunctionExample();
+// filterFunctionExample();
 
 function filterExample2() {
   let products = [
@@ -68,17 +68,25 @@ function filterExample2() {
     {
       catergory: "Television",
       name: "Sony A84",
-      price: 550
+      price: 550,
     },
     {
       catergory: "Television",
       name: "LG C2",
-      price: 450
-    } 
+      price: 450,
+    },
 
     //Output -> "IPhone 14", "Samsung S22"
+    //Output -> "Sony A84", "LG C2"
   ];
+
+  let filterPredicate = (product) => product.catergory === "Mobile";
+  let getNames = product => product.name;
+
+  let mobileNames = products.filter(filterPredicate).map(getNames);
+  console.log("2. Mobile Names :- ", mobileNames);
 }
+filterExample2();
 
 // 3. Reduce -> [1, 2, 3, 4, 5] -> sum -> 15
 //    Reduce -> [{model:'iphone 14 pro', price: '150'}, {model:'iphone', price: '150'}] -> sum -> 15
