@@ -47,8 +47,38 @@ function filterFunctionExample() {
   let oddNumbersES6 = numbers.filter(isOddNumPredicate);
   console.log("2. Odd Number :- ", oddNumbersES6);
 
+  let isEvenNumPredicate = (number) => number % 2 == 0;
+  let evenNumbersES6 = numbers.filter(isEvenNumPredicate);
+  console.log("2. Even Number :- ", evenNumbersES6);
 }
 filterFunctionExample();
+
+function filterExample2() {
+  let products = [
+    {
+      catergory: "Mobile",
+      name: "IPhone 14",
+      price: 150,
+    },
+    {
+      catergory: "Mobile",
+      name: "Samsung S22",
+      price: 80,
+    },
+    {
+      catergory: "Television",
+      name: "Sony A84",
+      price: 550
+    },
+    {
+      catergory: "Television",
+      name: "LG C2",
+      price: 450
+    } 
+
+    //Output -> "IPhone 14", "Samsung S22"
+  ];
+}
 
 // 3. Reduce -> [1, 2, 3, 4, 5] -> sum -> 15
 //    Reduce -> [{model:'iphone 14 pro', price: '150'}, {model:'iphone', price: '150'}] -> sum -> 15

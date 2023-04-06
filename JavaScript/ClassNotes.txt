@@ -21,3 +21,6 @@ Javascript is a single-threaded language, meaning that just one line of code may
 Javascript is single-threaded because, originally, it was only a web browser scripting language 
 created to serve the needs of a single user on a single window of the browser, 
 eliminating the need for multithreading.
+
+
+
