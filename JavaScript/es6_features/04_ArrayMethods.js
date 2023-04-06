@@ -80,14 +80,35 @@ function filterExample2() {
     //Output -> "Sony A84", "LG C2"
   ];
 
-  let filterPredicate = (product) => product.catergory === "Mobile";
-  let getNames = product => product.name;
+  let mobilePredicate = (product) => product.catergory === "Mobile";
+  let tvAndPricePredicate = (product) =>
+    product.catergory === "Television" && product.price > 400;
+  let getNames = (product) => product.name;
 
-  let mobileNames = products.filter(filterPredicate).map(getNames);
-  console.log("2. Mobile Names :- ", mobileNames);
+  let names = products.filter(tvAndPricePredicate).map(getNames);
+  console.log("2. Filtered Product Names :- ", names);
 }
-filterExample2();
+// filterExample2();
 
 // 3. Reduce -> [1, 2, 3, 4, 5] -> sum -> 15
 //    Reduce -> [{model:'iphone 14 pro', price: '150'}, {model:'iphone', price: '150'}] -> sum -> 15
 //               {model:'samsung', price: '130'}] -> sumOfPrices -> 280
+
+function reduceExample() {
+  let numbers = [1, 2, 3, 4, 5];
+  let sum = 0;
+  for (let number of numbers) {
+    sum = sum + number;
+  }
+  console.log("1. Sum of numbers :- ", sum);
+
+  let reducePredicate = (acc, curr) => {
+    console.log(`Accumulator :- ${acc} Current value  ${curr}`); 
+    return acc + curr;
+  };
+  // let reducedSum = numbers.reduce(reducePredicate);
+  // let reducedSum = numbers.reduce(reducePredicate, 150);
+  let reducedSum = numbers.reduce(reducePredicate, 0);
+  console.log("2. Sum of numbers :- ", reducedSum);
+}
+reduceExample();
