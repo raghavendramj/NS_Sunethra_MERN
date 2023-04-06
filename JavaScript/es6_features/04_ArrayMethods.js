@@ -66,6 +66,11 @@ function filterExample2() {
       price: 80,
     },
     {
+      catergory: "Redmi",
+      name: "15 Pro Max",
+      price: 130,
+    },
+    {
       catergory: "Television",
       name: "Sony A84",
       price: 550,
@@ -111,4 +116,36 @@ function reduceExample() {
   let reducedSum = numbers.reduce(reducePredicate, 0);
   console.log("2. Sum of numbers :- ", reducedSum);
 }
-reduceExample();
+// reduceExample();
+
+
+function practicalReduce(){
+  let products = [
+    {
+      catergory: "Mobile",
+      name: "IPhone 14",
+      price: 150,
+    },
+    {
+      catergory: "Mobile",
+      name: "Samsung S22",
+      price: 80,
+    },
+    {
+      catergory: "Redmi",
+      name: "15 Pro Max",
+      price: 130,
+    },
+    {
+      catergory: "Television",
+      name: "Sony A84",
+      price: 550,
+    },
+    {
+      catergory: "Television",
+      name: "LG C2",
+      price: 450,
+    }  
+  ];
+   // Ask -> Sum of the prices of Mobile phones > $100 
+}
