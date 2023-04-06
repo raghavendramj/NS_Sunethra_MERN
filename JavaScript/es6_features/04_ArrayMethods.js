@@ -163,26 +163,38 @@ function practicalReduce() {
   mobiles = mobiles.map(onlyPricePred);
   console.log("3. Mobile Prices :- ", mobiles);
 
-  //4. Sum of mobile phone prices 
+  //4. Sum of mobile phone prices
   let sumOfPricesPred = (a, b) => a + b;
   let sumOfPrices = mobiles.reduce(sumOfPricesPred);
-  console.log("4. Sum of Mobile Price > 100 :- ", sumOfPrices); 
+  console.log("4. Sum of Mobile Price > 100 :- ", sumOfPrices);
 
   let sumInOnelineEx1 = products
-          .filter(prod => prod.catergory === "Mobile")
-          .filter(prod => prod.price > 100)
-          .map(prod => prod.price)
-          .reduce((acc, cur) => acc + cur); 
+    .filter((prod) => prod.catergory === "Mobile")
+    .filter((prod) => prod.price > 100)
+    .map((prod) => prod.price)
+    .reduce((acc, cur) => acc + cur);
 
   let sumInOnelineEx2 = products
-          .filter(prod => prod.catergory === "Mobile" && prod.price > 100)
-          .map(prod => prod.price)
-          .reduce((acc, cur) => acc + cur); 
+    .filter((prod) => prod.catergory === "Mobile" && prod.price > 100)
+    .map((prod) => prod.price)
+    .reduce((acc, cur) => acc + cur);
 
   console.log("5. Sum of Mobile Price > 100 sumInOneline :- ", sumInOnelineEx1);
-  console.log("6. Sum of Mobile Price > 100 sumInOnelineEx2 :- ", sumInOnelineEx2);
-        
-
-
+  console.log(
+    "6. Sum of Mobile Price > 100 sumInOnelineEx2 :- ",
+    sumInOnelineEx2
+  );
 }
-practicalReduce();
+// practicalReduce();
+
+function sortNumbers() {
+  let numbers = [3, 1, 2, 7, 4, 5, 9, 8];
+  let ascComparator = (a, b) => a - b;
+  let sortedNumbers = numbers.sort(ascComparator);
+  console.log("Ascending Order Sorted Numbers :- ", sortedNumbers);
+
+  let descComparator = (a, b) => b - a;
+  sortedNumbers = numbers.sort(descComparator);
+  console.log("Descending Order Sorted Numbers :- ", sortedNumbers);
+}
+sortNumbers();
