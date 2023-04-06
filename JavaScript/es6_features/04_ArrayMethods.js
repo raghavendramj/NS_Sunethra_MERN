@@ -189,7 +189,10 @@ function practicalReduce() {
 
 function sortNumbers() {
   let numbers = [3, 1, 2, 7, 4, 5, 9, 8];
-  let ascComparator = (a, b) => a - b;
+  let ascComparator = (a, b) => {
+    //console.log(`a :- ${a}, b :- ${b} , res :- `, a - b);
+    return a - b;
+  };
   let sortedNumbers = numbers.sort(ascComparator);
   console.log("Ascending Order Sorted Numbers :- ", sortedNumbers);
 
@@ -197,4 +200,22 @@ function sortNumbers() {
   sortedNumbers = numbers.sort(descComparator);
   console.log("Descending Order Sorted Numbers :- ", sortedNumbers);
 }
-sortNumbers();
+// sortNumbers();
+
+function findFunctions() {
+  let numbers = [3, 1, 2, 7, 4, 5, 9, 8];
+  let grThan7 = (number) => number > 7;
+  let numGetT7 = numbers.find(grThan7);
+  console.log("numGetT7 :- ", numGetT7);
+}
+// findFunctions();
+
+function findFirstFunctions() {
+  let numbers = [3, 1, 3, 1, 2, 7, 2, 7];
+
+  let eqTo7 = (number) => number == 7;
+  let numeqTo7 = numbers.findIndex(eqTo7);
+
+  console.log("numeqTo7 :- ", numeqTo7);
+}
+findFirstFunctions();
