@@ -108,7 +108,7 @@ function reduceExample() {
   console.log("1. Sum of numbers :- ", sum);
 
   let reducePredicate = (acc, curr) => {
-    console.log(`Accumulator :- ${acc} Current value  ${curr}`); 
+    console.log(`Accumulator :- ${acc} Current value  ${curr}`);
     return acc + curr;
   };
   // let reducedSum = numbers.reduce(reducePredicate);
@@ -118,8 +118,7 @@ function reduceExample() {
 }
 // reduceExample();
 
-
-function practicalReduce(){
+function practicalReduce() {
   let products = [
     {
       catergory: "Mobile",
@@ -132,8 +131,8 @@ function practicalReduce(){
       price: 80,
     },
     {
-      catergory: "Redmi",
-      name: "15 Pro Max",
+      catergory: "Mobile",
+      name: "Redmi 15 Pro Max",
       price: 130,
     },
     {
@@ -145,7 +144,45 @@ function practicalReduce(){
       catergory: "Television",
       name: "LG C2",
       price: 450,
-    }  
+    },
   ];
-   // Ask -> Sum of the prices of Mobile phones > $100 
+  // Ask -> Sum of the prices of Mobile phones > $100
+
+  //1. All Mobile phones
+  let mobilePred = (product) => product.catergory === "Mobile";
+  let mobiles = products.filter(mobilePred);
+  console.log("1. Only Mobiles :- ", mobiles);
+
+  //2. Mobile phones > 100
+  let pricePred = (product) => product.price > 100;
+  mobiles = mobiles.filter(pricePred);
+  console.log("2. Mobiles > 100 :- ", mobiles);
+
+  //3. Mobile phone prices only
+  let onlyPricePred = (product) => product.price;
+  mobiles = mobiles.map(onlyPricePred);
+  console.log("3. Mobile Prices :- ", mobiles);
+
+  //4. Sum of mobile phone prices 
+  let sumOfPricesPred = (a, b) => a + b;
+  let sumOfPrices = mobiles.reduce(sumOfPricesPred);
+  console.log("4. Sum of Mobile Price > 100 :- ", sumOfPrices); 
+
+  let sumInOnelineEx1 = products
+          .filter(prod => prod.catergory === "Mobile")
+          .filter(prod => prod.price > 100)
+          .map(prod => prod.price)
+          .reduce((acc, cur) => acc + cur); 
+
+  let sumInOnelineEx2 = products
+          .filter(prod => prod.catergory === "Mobile" && prod.price > 100)
+          .map(prod => prod.price)
+          .reduce((acc, cur) => acc + cur); 
+
+  console.log("5. Sum of Mobile Price > 100 sumInOneline :- ", sumInOnelineEx1);
+  console.log("6. Sum of Mobile Price > 100 sumInOnelineEx2 :- ", sumInOnelineEx2);
+        
+
+
 }
+practicalReduce();
