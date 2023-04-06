@@ -27,10 +27,29 @@ function mapExample() {
   let namesLengthUsingMap = names.map(calculateLength);
   console.log("2.2. ES6 way :- ", namesLengthUsingMap);
 }
-mapExample();
+// mapExample();
 
 // 2. Filter -> [1, 2, 3, 4, 5, 6, 7, 8, 9] -> ODD -> [1, 3, 5, 7, 9]
 //    Filter -> [1, 2, 3, 4, 5, 6, 7, 8, 9] -> EVEN -> [2, 4, 6, 8]]
+
+function filterFunctionExample() {
+  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let oddNumbers = new Array();
+  for (let eachNum of numbers) {
+    if (eachNum % 2 != 0) {
+      oddNumbers.push(eachNum);
+    }
+  }
+  console.log("1. Odd Number :- ", oddNumbers);
+
+  //3 -> 1. Input, 2. Predicate, 3. Which array function to use
+  let isOddNumPredicate = (number) => number % 2 != 0;
+  let oddNumbersES6 = numbers.filter(isOddNumPredicate);
+  console.log("2. Odd Number :- ", oddNumbersES6);
+
+}
+filterFunctionExample();
+
 // 3. Reduce -> [1, 2, 3, 4, 5] -> sum -> 15
 //    Reduce -> [{model:'iphone 14 pro', price: '150'}, {model:'iphone', price: '150'}] -> sum -> 15
 //               {model:'samsung', price: '130'}] -> sumOfPrices -> 280
