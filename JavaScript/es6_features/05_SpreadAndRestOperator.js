@@ -5,10 +5,21 @@ function spreaTest() {
   const clubbedNums = nums1.concat(nums2);
   console.log("Clubbed nums :- ", clubbedNums);
 
-  const es6Way = [...nums1, ...nums2]
+  const es6Way = [...nums1, ...nums2];
   console.log("Clubbed nums es6Way:- ", es6Way);
 
-  const alongWithOthers = [34, ...nums1, 67, ...nums2, 19, 25]
+  const alongWithOthers = [34, ...nums1, 67, ...nums2, 19, 25];
   console.log("Clubbed nums alongWithOthers:- ", alongWithOthers);
 }
-spreaTest();
+// spreaTest();
+
+function objectSpreadExample() {
+  let person1 = { name: "Adam", age: 23 };
+  let person2 = { name: "Mathew", age: 34 };
+  let people = [person1, person2];
+
+  let person3 = { name: "Ram", age: 26 };
+  let newArray = [...people, person3];
+  console.log("Object arrays spreaded :- ", newArray);
+}
+objectSpreadExample();
