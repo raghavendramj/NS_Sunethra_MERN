@@ -22,4 +22,17 @@ function objectSpreadExample() {
   let newArray = [...people, person3];
   console.log("Object arrays spreaded :- ", newArray);
 }
-objectSpreadExample();
+// objectSpreadExample();
+
+//Rest Operator
+function addNumbers(a, b, ...others) {
+  console.log("\n-------------------------------")
+  console.log("A :- ", a);
+  console.log("B :- ", b);
+  for (let eachParam of others) {
+    console.log("Each param :- ", eachParam);
+  } 
+}
+addNumbers(1, 2, 3, 4, 5, 6);
+addNumbers(11, 22);
+addNumbers(11, 22, 33, 56);
