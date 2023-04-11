@@ -18,7 +18,7 @@ retValue.then(
 //Await only works inside an async function
 async function testAwait() {
   let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("Completed!"), 3000);
+    setTimeout(() => resolve("Completed!"), 3000); //15 to 20
   });
 
   let result = await promise;

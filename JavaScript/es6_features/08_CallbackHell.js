@@ -56,8 +56,7 @@ let callBackHellBegin = (
       }); 
       setTimeout(() => {console.log("Listing repositories :- ", repo);}, 6000); 
     });
-    setTimeout(() => {console.log("Readig Code from :- ", fileName);}, 8000);
-    
+    setTimeout(() => {console.log("Readig Code from :- ", fileName);}, 8000); 
   });
 };
 
