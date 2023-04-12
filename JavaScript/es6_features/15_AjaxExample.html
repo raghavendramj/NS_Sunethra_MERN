@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>AJAX Intro</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function loadPosts() {
+        let xmlHttp = new XMLHttpRequest(); //Creates a new XMLHttpRequest object
+        let url = "https://jsonplaceholder.typicode.com/posts"; //Example backend
+        xmlHttp.open("GET", url, true);
+        // method: the request type GET or POST
+        // url: the file location
+        // async: true (asynchronous) or false (synchronous)
+        xmlHttp.send(); //	Sends the request to the server, Used for GET requests
+
+        xmlHttp.onreadystatechange = () => {
+          //HTTP Status -> 2XX, 3XX, 4XX, 5XX, 1XX
+          //Ready State -> 0, 1, 2, 3, 4
+          if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            const postsResponse = JSON.parse(xmlHttp.response);
+            console.log("Response succecss receivied :- ", postsResponse);
+            let htmlData = postsResponse
+              .map((eachPost) => {
+                return `<tr>
+                    <td>${eachPost.userId}</td>
+                    <td>${eachPost.id}</td>
+                    <td>${eachPost.title}</td>
+                    <td>${eachPost.body}</td>
+                    <tr>`;
+              })
+              .join("");
+            document.querySelector("tbody").innerHTML = htmlData;
+            document.querySelector("#loadBtn").style.display = "none";
+          }
+        };
+      }
+    </script>
+  </head>
+  <body>
+    <h1>
+      <div class="container mt-3">
+        <h1>Ajax Communication</h1>
+        <button id="loadBtn" class="btn btn-primary" onclick="loadPosts()">
+          Load Posts
+        </button>
+        <table class="table table-striped">
+          <thead>
+            <th>UserID</th>
+            <th>ID</th>
+            <th>title</th>
+            <th>body</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p></p>
+      </div>
+    </h1>
+  </body>
+</html>
