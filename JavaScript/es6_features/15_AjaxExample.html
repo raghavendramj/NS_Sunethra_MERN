@@ -18,12 +18,23 @@
         // async: true (asynchronous) or false (synchronous)
         xmlHttp.send(); //	Sends the request to the server, Used for GET requests
 
+        //Defines a function to be called when the readyState property changes
         xmlHttp.onreadystatechange = () => {
-          //HTTP Status -> 2XX, 3XX, 4XX, 5XX, 1XX
-          //Ready State -> 0, 1, 2, 3, 4
+          //HTTP Status -> 2XX, 3XX, 4XX, 5XX, 1XX -> Returns the status-number of a request
+          // 200: "OK" ---> SUCCESS CASE
+          // 403: "Forbidden"
+          // 404: "Not Found"
+          // For a complete list go to the Http Messages Reference
+
+          //Ready State -> Holds the status of the XMLHttpRequest.
+          // 0: request not initialized
+          // 1: server connection established
+          // 2: request received
+          // 3: processing request
+          // 4: request finished and response is ready ---> RESPONSE READY
           if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             const postsResponse = JSON.parse(xmlHttp.response);
-            console.log("Response succecss receivied :- ", postsResponse);
+            console.log("Response success receivied :- ", postsResponse);
             let htmlData = postsResponse
               .map((eachPost) => {
                 return `<tr>
@@ -36,6 +47,20 @@
               .join("");
             document.querySelector("tbody").innerHTML = htmlData;
             document.querySelector("#loadBtn").style.display = "none";
+          }
+        };
+      }
+
+      function simpleAjaxFunction() {
+        let xmlHttp = new XMLHttpRequest();
+        let url = "https://jsonplaceholder.typicode.com/todos";
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send();
+
+        xmlHttp.onreadystatechange = () => {
+          if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            const postsResponse = JSON.parse(xmlHttp.response);
+            console.log("Response success receivied :- ", postsResponse);
           }
         };
       }
