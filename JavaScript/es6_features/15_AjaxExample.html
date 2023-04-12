@@ -59,8 +59,9 @@
 
         xmlHttp.onreadystatechange = () => {
           if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-            const postsResponse = JSON.parse(xmlHttp.response);
-            console.log("Response success receivied :- ", postsResponse);
+            const todosResponse = JSON.parse(xmlHttp.response);
+            console.log("Response success receivied :- ", todosResponse);
+            document.querySelector("p").innerHTML = xmlHttp.response;
           }
         };
       }
@@ -72,6 +73,13 @@
         <h1>Ajax Communication</h1>
         <button id="loadBtn" class="btn btn-primary" onclick="loadPosts()">
           Load Posts
+        </button>
+        <button
+          id="loadBtn"
+          class="btn btn-primary"
+          onclick="simpleAjaxFunction()"
+        >
+          Load Todos
         </button>
         <table class="table table-striped">
           <thead>
