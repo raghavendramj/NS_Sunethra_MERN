@@ -31,6 +31,7 @@ class Person {
     this.personCity = cityName;
   }
 
+  //GET AND SET should for that property of the class
   get city() {
     return this.personCity;
   }
