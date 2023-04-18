@@ -4,13 +4,60 @@
   </head>
   <body>
     <h1>DOM Manipulation Exercise 02</h1>
+    <script>
+      let form = document.createElement("form");
+      form.name = "loginForm";
+
+      //Username
+      let usernameLabel = document.createElement("label");
+      usernameLabel.textContent = "Username:";
+      form.appendChild(usernameLabel);
+
+      //Username input
+      let usernameInput = document.createElement("input");
+      usernameInput.type = "text";
+      usernameInput.name = "username";
+
+      form.appendChild(usernameInput);
+      form.appendChild(document.createElement("br"));
+
+      //Password
+      let passwordLabel = document.createElement("label");
+      passwordLabel.textContent = "Password:";
+      form.appendChild(passwordLabel);
+
+      //Password input
+
+      let passwordInput = document.createElement("input");
+      passwordInput.type = "password";
+      passwordInput.name = "password";
+      form.appendChild(passwordInput);
+      form.appendChild(document.createElement("br"));
+
+      //Reset button
+
+      let resetButton = document.createElement("input");
+      resetButton.type = "button";
+      resetButton.value = "Reset";
+      resetButton.onclick = function () {
+        form.reset();
+      };
+
+      form.appendChild(resetButton);
+
+      //Submit button
+      let submitButton = document.createElement("input");
+      submitButton.type = "submit";
+      submitButton.value = "Submit";
+
+      submitButton.onclick = function () {
+        if (usernameInput.value === "" || passwordInput.value === "") {
+          alert("Please enter both username and password");
+          return false;
+        }
+      };
+      form.appendChild(submitButton);
+      document.body.appendChild(form);
+    </script>
   </body>
 </html>
-
-
-<!-- <Form>
-    Username :- 
-    Password :-
-        Reset 
-        Submit 
-</Form> -->

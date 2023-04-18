@@ -3,15 +3,17 @@
     <title>After Element</title>
   </head>
   <body>
-    <h1>After Element Example</h1>
     <button>Press Enter to Add Element After h1</button>
+    <h1>After Element Example</h1>
     <script>
       let btn = document.querySelector("button");
+      btn.style.fontSize = "20px";
+      let counter = 0;
       btn.addEventListener("click", function () {
         //New Element Creation
         let newDiv = document.createElement("div");
         newDiv.className = "newDiv";
-        newDiv.innerHTML = "New Division!";
+        newDiv.innerHTML = "New Division! _" + counter++;
 
         //Append Child Example
         let h1 = document.querySelector("h1");
