@@ -28,11 +28,11 @@ let resultViaIIFE = (function (a, b) {
 
 console.log("IIFE - Result :- ", resultViaIIFE); //Value
 
-let counter = 10;
+let someValue = 10;
 
 (function () {
   //Private to this IIFE
-  let counter = 0;
+  let someValue = 0;
 
   //Private to this IIFE
   function add(a, b) {
@@ -40,9 +40,9 @@ let counter = 10;
     console.log("INSIDE IIFE - Result :- ", result);
     return result;
   }
-  counter = 24;
-  console.log("INSIDE IIFE - Value of counter ", counter);
+  someValue = 24;
+  console.log("INSIDE IIFE - Value of someValue ", someValue);
   add(23, 24);
 })();
 
-console.log("Value of counter ", counter);
+console.log("Value of someValue ", someValue);
