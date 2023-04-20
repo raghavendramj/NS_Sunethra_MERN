@@ -38,3 +38,24 @@ function Widget(height, width, color) {
 
 let widget = new Widget(100, 200, "Red");
 console.log(widget);
+
+function multiply() {
+  let result = this.x * this.y;
+  console.log("Product Result :- ", result);
+  return result;
+}
+
+multiply();
+let obj = { x: 21, y: 6 };
+multiply(obj);
+multiply.call(obj);
+
+
+function add(y) {
+  let result = this.x + y;
+  console.log("Addition Result :- ", result);
+  return result;
+}
+ 
+let diffObj = { x: 21 }; 
+add.call(obj, 12);
