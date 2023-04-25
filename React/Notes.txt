@@ -1,0 +1,57 @@
+What Is React?
+	React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
+	It lets you compose complex UIs from small and isolated pieces of code called “components”.
+
+
+Why we use React?
+	The main objective of ReactJS is to develop User Interfaces (UI) that improves the speed of the apps.
+	It uses Virtual DOM(JavaScript Object) which improves performance of the application.
+	JavaScript Virtua DOM is faster than the regular DOM.
+	We can use ReactJS on the client and server side as well with other frameworks.
+	It uses component	 and data patterns that improves readability and helps too maintain larger apps
+
+
+React Environment Setup
+
+Pre-requisite for ReactJS
+---------------------------
+NodeJS and NPM
+React and React DOM
+Webpack
+Babel
+
+
+Ways to install ReactJS
+There are 2 ways to setup the environment for successful reactJs application.
+
+Using the following npm command
+
+	mkdir reactproject
+	cd /reactproject/
+	npm init -y
+	npm install react react-dom --save
+	npm install webpack webpack-dev-server webpack-cli --save
+	npm install babel-core babel-loader babel-preset-env babel-preset-react babel-webpack-plugin --save-dev
+
+	mkdir reactproject
+	cd /reactproject/
+	npm install -g create-react-app
+	create-react-app mynewtonschoolreactapp
+
+React Features
+	JSX - JavaScript Syntax Extension
+	JSX is a preferable choice for many web developers. It isn't necessary to use JSX in React development, but there is a massive difference between writing react.js documents in JSX and JavaScript. JSX is a syntax extension to JavaScript. By using that, we can write HTML structures in the same file that contains JavaScript code.
+
+	Unidirectional Data Flow
+		React.js is designed so that it will only support data that is flowing downstream, in one direction. If the data has to flow in another direction, you will need to additional features
+	Virtual Document Object Model (VDOM)
+
+
+How to install bootstrap is  :- 
+	npm install react-bootstrap bootstrap
+	
+	CSS:- The following line has to be included in index.js
+	import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
