@@ -53,5 +53,43 @@ How to install bootstrap is  :-
 	CSS:- The following line has to be included in index.js
 	import 'bootstrap/dist/css/bootstrap.min.css';
 
+React End Project :-
+	-> Creating A Budget Tracker Application
+		-> Like Splitwise
+	-> Add a category
+	-> Add an expense
+	-> View an expense
+	-> Remove an expense
+	-> Categorize expense
+	-> View Totals
+	
+	
+React Class Component
+	Independent reusable bits of code.
+	extends React.Component
+	needs render() method invocation.
+	
+React States
+	This state is an updateable structure that is used to contain data/info about the component.
+	The state inside a component can change over time.
+	The change can happen in 2 different ways:
+		1. Response to user action
+		2. System Event
+	A state must be kept as simple as possible.
+	We can't/shouldn't modify the state, it must directly be modified by using
+	setState() method only.
+	ex:- {color: red}
+	state.color = 'green'; -> WRONG
+	
+	Correct way of updating state is...	
+	1. Make a copy let stateCopy = [...state];
+	2. do the necessary modifications in copy of the state.
+		stateCopy.color = "green";
+	3. update the state using setState(stateCopy);
+	
+	We do this because, setState() -> trigger UI updates.
+	
+
+
 
 
