@@ -76,6 +76,9 @@ React States
 		1. Response to user action
 		2. System Event
 	A state must be kept as simple as possible.
+	The state changes cab be asynchronous
+	State can't access its child component information
+	Can be used to render dynamic changes only
 	We can't/shouldn't modify the state, it must directly be modified by using
 	setState() method only.
 	ex:- {color: red}
@@ -90,6 +93,16 @@ React States
 	We do this because, setState() -> trigger UI updates.
 	
 
-
+Lifecycle of Components
+	Three phases of lifecycle are...
+	1. Mounting
+		Four built in methods, these are called in sequence
+		1. constructor()
+		2. getDerivedStateFromProps()
+		3. render()
+		4. componentDidMount()
+	2. Updating
+	3. Unmounting
+	
 
 
