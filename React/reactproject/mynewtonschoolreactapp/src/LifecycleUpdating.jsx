@@ -21,6 +21,27 @@ class LifecycleUpdatePhaseDemo extends Component {
         })
     }
 
+    componentDidMount() {
+        const newPlayer = {
+            player: "Lionel Messi",
+            sport: "Football"
+        }
+        setTimeout(() => {
+            console.log("Changing the state.color to yellow");
+            this.setState(newPlayer);
+        }, 2000);
+    }
+
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("4.Previous State :- ", prevState);
+        return prevState;
+    }
+
+    componentDidUpdate() {
+        console.log("5. Current State :- ", this.state);
+    }
+
     render() {
         console.log("2. render called!");
         return (
