@@ -110,6 +110,19 @@ Lifecycle of Components
 			-> actually outputs the HTML to DOM
 		4. componentDidMount()
 			-> used to run statements that requires when component already placed in DOM
+			
+			
+		Example:-
+			-------------------------------------------------------------------
+			1. constructor -> initialize -> color : red
+			2. getDerivedStateFromProps -> return ->  color : maroon
+			3. render -> color : maroon
+			4. componentDidMount -> setState  -> color : yellow
+			-------------------------------------------------------------------
+			5. getDerivedStateFromProps -> return ->  color : maroon
+			6. render -> color : maroon
+			-------------------------------------------------------------------
+		
 	2. Updating
 	3. Unmounting
 	
