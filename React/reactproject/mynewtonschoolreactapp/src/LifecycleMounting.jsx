@@ -15,8 +15,7 @@ class MountingPhaseDemo extends Component {
             return { color: props.color };
         } else {
             console.log("5. getDerivedStateFromProps called!");
-            console.log("5. color before this method is :-  ", state.color);
-            console.log("5. color received from props is :-  ", props.color);
+            console.log("5. color before this method is :-  ", state.color); 
             //During 5th call in sequence
             return { color: state.color };
         }

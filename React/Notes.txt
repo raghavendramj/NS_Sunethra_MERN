@@ -124,6 +124,15 @@ Lifecycle of Components
 			-------------------------------------------------------------------
 		
 	2. Updating
+		This lifecycle is triggered when a component is updated.
+		Its updated whenever there is a change in component's state/props
+		Five built in methods.
+			1. getDerivedStateFromProps()
+			2. shouldComponentUpdate() - return true/false for render() to be called or not. [Default is TRUE]
+			3. render()
+			4. getSnapshotBeforeUpdate() - to check what's the values were before the update. if this is present, componentDidUpdate() is also required
+			5. componentDidUpdate() - called after the componentUpdate
+	
 	3. Unmounting
 	
 
