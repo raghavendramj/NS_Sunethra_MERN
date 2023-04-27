@@ -97,10 +97,19 @@ Lifecycle of Components
 	Three phases of lifecycle are...
 	1. Mounting
 		Four built in methods, these are called in sequence
-		1. constructor()
+		1. constructor() 
+			-> This method is called before anything else.
+			-> When component gets initiated, it sets up initial values and initial state object!
+			-> it can also be called with props 
+			-> super() or super(props)
+			-> allows to inherit methods from its parent React.Component
 		2. getDerivedStateFromProps()
+			-> called right before rendering the elements in DOM
+			-> state as an argument and return the object with changes to state!
 		3. render()
+			-> actually outputs the HTML to DOM
 		4. componentDidMount()
+			-> used to run statements that requires when component already placed in DOM
 	2. Updating
 	3. Unmounting
 	

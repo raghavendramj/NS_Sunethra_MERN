@@ -8,6 +8,7 @@ import Begin from "./Begin";
 import Car from "./Car";
 import Bus from "./Bus";
 import Product from "./Product";
+import MountingPhaseDemo from "./LifecycleMounting";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +16,8 @@ root.render(
     {/* <Begin /> */}
     {/* <Car /> */}
     {/* <Bus /> */}
-    <Product />
+    {/* <Product /> */}
+    <MountingPhaseDemo color="maroon" />
   </React.StrictMode>
 );
 
