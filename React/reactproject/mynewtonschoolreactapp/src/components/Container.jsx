@@ -10,7 +10,7 @@ class Container extends Component {
 
     render() {
         return (
-            <h1>Container Class!</h1>
+            <h1>I am Container Class!</h1>
         );
     }
 }
