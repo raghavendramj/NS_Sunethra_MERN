@@ -134,6 +134,6 @@ Lifecycle of Components
 			5. componentDidUpdate() - called after the componentUpdate
 	
 	3. Unmounting
-	
+		componentWillUnmount();
 
 

@@ -14,6 +14,7 @@ class LifecycleUpdatePhaseDemo extends Component {
         console.log("3. shouldComponentUpdate called!");
         return true;
     }
+    
     changePlayer = () => {
         this.setState({
             player: "Roger Fedrer",

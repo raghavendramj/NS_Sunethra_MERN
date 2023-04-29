@@ -10,6 +10,7 @@ import Bus from "./Bus";
 import Product from "./Product";
 import MountingPhaseDemo from "./LifecycleMounting";
 import LifecycleUpdatePhaseDemo from "./LifecycleUpdating";
+import UnMountingDemo from "./LifecycleUnmounting";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,7 +20,8 @@ root.render(
     {/* <Bus /> */}
     {/* <Product /> */}
     {/* <MountingPhaseDemo color="maroon" /> */}
-    <LifecycleUpdatePhaseDemo player="Virat" />
+    {/* <LifecycleUpdatePhaseDemo player="Virat" /> */}
+    <UnMountingDemo />
   </React.StrictMode>
 );
 
