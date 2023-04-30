@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import UnMountingDemo from "./components/LifecycleUnmounting";
 import ProductPropsDemo from "./components/PropsExample";
 import PropsExampleClassComponent from "./components/ProductPropsCCDemo";
+import EventsExample from "./events/EventsExample";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,9 +18,9 @@ root.render(
     {/* <MountingPhaseDemo color="maroon" /> */}
     {/* <LifecycleUpdatePhaseDemo player="Virat" /> */}
     {/* <UnMountingDemo /> */}
-    <ProductPropsDemo model="iphone 14" />
-    <PropsExampleClassComponent model="Samsung S22 Ultra" />
-
+    {/* <ProductPropsDemo model="iphone 14" /> */}
+    {/* <PropsExampleClassComponent model="Samsung S22 Ultra" /> */}
+    <EventsExample param="React Events Example"/>
   </React.StrictMode>
 );
 
