@@ -137,3 +137,10 @@ Lifecycle of Components
 		componentWillUnmount();
 
 
+Exercise :-
+	Component 1 -> playerType=batsmen, bowler, allrounder
+	-> Component 2 -> [{type:a, ....}, {type:a, ....}, {type:b, ....}] -> All players
+			-> Component 3 -> Display these using list concept -> Only Selected players
+	
+
+

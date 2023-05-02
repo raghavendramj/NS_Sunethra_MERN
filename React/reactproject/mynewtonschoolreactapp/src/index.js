@@ -10,6 +10,7 @@ import EventsExample from "./events/EventsExample";
 import ResultOfADelivery from "./conditionals/IfStatement";
 import Garage from "./conditionals/Garage";
 import Players from "./lists/SimpleLists";
+import Crickerters from "./lists/exercise";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -17,6 +18,16 @@ const playersArr = [
   { id: 1, name: "Ronaldo" },
   { id: 2, name: "Messi" },
   { id: 3, name: "Mbappe" },
+];
+
+const cricketers = [
+  { id: 1, name: "Virat", specialization: "Batsmen" },
+  { id: 2, name: "Rahul", specialization: "Batsmen" },
+  { id: 3, name: "Hardhik", specialization: "Allrounder" },
+  { id: 4, name: "Jadeja", specialization: "Allrounder" },
+  { id: 5, name: "Dhoni", specialization: "Batsmen" },
+  { id: 6, name: "Bumrah", specialization: "Bowler" },
+  { id: 7, name: "Zaheer", specialization: "Bowler" },
 ];
 root.render(
   <React.StrictMode>
@@ -32,7 +43,8 @@ root.render(
     {/* <EventsExample param="React Events Example"/> */}
     {/* <Garage cars={carsArr} /> */}
     {/* <ResultOfADelivery fourOrSix={true} /> */}
-    <Players players={playersArr} />
+    {/* <Players players={playersArr} /> */}
+    <Crickerters players={cricketers} filter="Allrounder"/>
   </React.StrictMode>
 );
 

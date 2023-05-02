@@ -15,6 +15,7 @@ function Players(props) {
                     return <Player key={eachPlayer.id} name={eachPlayer.name} />
                 })}
             </ul>
+            
         </>
     );
 }
