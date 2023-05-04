@@ -17,6 +17,7 @@ import LifecycleUpdatePhaseDemo from "./components/LifecycleUpdating";
 import BasicForms from "./forms/BasicForms";
 import UseStateHook from "./hooks/UseState"; 
 import SimplerHookExample from "./hooks/SimplerExample";
+import UseStateArrayExample from "./hooks/useStateArray";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -53,8 +54,9 @@ root.render(
     {/* <Crickerters players={cricketers} playerType="Batsmen"/> */}
     {/* <ChooseComponent /> */}
     {/* <BasicForms /> */}
+    {/* <SimplerHookExample /> */}
     {/* <UseStateHook /> */}
-    <SimplerHookExample />
+    <UseStateArrayExample />
   </React.StrictMode>
 );
 
