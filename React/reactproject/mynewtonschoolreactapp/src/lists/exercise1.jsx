@@ -1,16 +1,16 @@
 function Crickerters(props) {
     const allCricketers = props.players;
-    const specializationFilter = props.filter;
+    const specializationFilter = props.playerType;
     const filteredPlayers = allCricketers.filter(each => each.specialization === specializationFilter);
     return (
         <div className="container">
-            <h1>List of all Crickerters</h1>
-            <ul>
+            <h1>List of all Cricketers</h1>
+            <ol>
                 {allCricketers.map(
                     eachCricketer => <li key={eachCricketer.id}>{eachCricketer.name} - {eachCricketer.specialization}</li>
                 )}
-            </ul>
-            <FilteredPlayer filteredPlayers={filteredPlayers} />
+            </ol>
+            <FilteredPlayers filteredPlayers={filteredPlayers} />
         </div>
     );
 }
@@ -18,10 +18,11 @@ function Crickerters(props) {
 export default Crickerters;
 
 
-function FilteredPlayer(props) {
+function FilteredPlayers(props) {
+    const appliedFilter = props.filteredPlayers[0].specialization;
     return (
         <div className="container">
-            <h1>Filtered Crickerters</h1>
+            <h1>{appliedFilter} Cricketers</h1>
             <ul>
                 {props.filteredPlayers.map(
                     eachCricketer => <li key={eachCricketer.id}>{eachCricketer.name} - {eachCricketer.specialization}</li>

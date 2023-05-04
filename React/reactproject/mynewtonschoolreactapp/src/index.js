@@ -10,7 +10,13 @@ import EventsExample from "./events/EventsExample";
 import ResultOfADelivery from "./conditionals/IfStatement";
 import Garage from "./conditionals/Garage";
 import Players from "./lists/SimpleLists";
-import Crickerters from "./lists/exercise";
+import Crickerters from "./lists/exercise1";
+import ChooseComponent from "./lists/exercise2";
+import MountingPhaseDemo from "./components/LifecycleMounting";
+import LifecycleUpdatePhaseDemo from "./components/LifecycleUpdating";
+import BasicForms from "./forms/BasicForms";
+import UseStateHook from "./hooks/UseState"; 
+import SimplerHookExample from "./hooks/SimplerExample";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -44,7 +50,11 @@ root.render(
     {/* <Garage cars={carsArr} /> */}
     {/* <ResultOfADelivery fourOrSix={true} /> */}
     {/* <Players players={playersArr} /> */}
-    <Crickerters players={cricketers} filter="Allrounder"/>
+    {/* <Crickerters players={cricketers} playerType="Batsmen"/> */}
+    {/* <ChooseComponent /> */}
+    {/* <BasicForms /> */}
+    {/* <UseStateHook /> */}
+    <SimplerHookExample />
   </React.StrictMode>
 );
 

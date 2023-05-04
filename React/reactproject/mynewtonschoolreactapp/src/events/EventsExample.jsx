@@ -4,7 +4,6 @@ function EventsExample(props) {
         console.log("Great Shot!");
     }
 
-
     const paramsExample = (a, b) => {
         console.log("A :- ", a);
         console.log("B :- ", b);

@@ -27,10 +27,10 @@ class LifecycleUpdatePhaseDemo extends Component {
             player: "Lionel Messi",
             sport: "Football"
         }
-        setTimeout(() => {
-            console.log("Changing the state.color to yellow");
-            this.setState(newPlayer);
-        }, 2000);
+        // setTimeout(() => {
+        //     console.log("Changing the state.color to yellow");
+        //     this.setState(newPlayer);
+        // }, 2000);
     }
 
 
