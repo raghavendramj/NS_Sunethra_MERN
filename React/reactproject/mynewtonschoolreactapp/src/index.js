@@ -18,6 +18,10 @@ import BasicForms from "./forms/BasicForms";
 import UseStateHook from "./hooks/UseState"; 
 import SimplerHookExample from "./hooks/SimplerExample";
 import UseStateArrayExample from "./hooks/useStateArray";
+import UseEffectHook from "./hooks/UseEffect";
+import SecondUseEffectExample from "./hooks/secondUseEffect";
+import UseContextHook from "./hooks/useContextProblem";
+import UseContextHookSolution from "./hooks/useContextSolution";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -56,7 +60,11 @@ root.render(
     {/* <BasicForms /> */}
     {/* <SimplerHookExample /> */}
     {/* <UseStateHook /> */}
-    <UseStateArrayExample />
+    {/* <UseStateArrayExample /> */}
+    {/* <UseEffectHook /> */}
+    {/* <SecondUseEffectExample /> */}
+    {/* <UseContextHook /> */}
+    <UseContextHookSolution />
   </React.StrictMode>
 );
 
