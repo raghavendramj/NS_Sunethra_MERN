@@ -24,6 +24,7 @@ import UseContextHook from "./hooks/useContextProblem";
 import UseContextHookSolution from "./hooks/useContextSolution";
 import UseEffectThird from "./hooks/useEffectThird";
 import UseEffectWindowExample from "./hooks/useEffectWindow";
+import UseMemoHook from "./hooks/UseMemoHook";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -68,7 +69,8 @@ root.render(
     {/* <UseContextHook /> */}
     {/* <UseContextHookSolution /> */}
     {/* <UseEffectThird /> */}
-    <UseEffectWindowExample />
+    {/* <UseEffectWindowExample /> */}
+    <UseMemoHook />
   </React.StrictMode>
 );
 
