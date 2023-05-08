@@ -3,7 +3,6 @@ import { createContext, useContext, useState } from "react";
 const userContext = createContext();
 
 function UseContextHookSolution() {
-
     const [player, setPlayer] = useState("Sachin Tendulkar")
     return (
         <userContext.Provider value={player}>
@@ -14,7 +13,6 @@ function UseContextHookSolution() {
                 <ExampleComp1 />
             </div>
         </userContext.Provider>
-
     );
 }
 
@@ -43,7 +41,6 @@ function ExampleComp2() {
 }
 
 function ExampleComp3() {
-
     const threePlayer = useContext(userContext);
     return (
         <div className="container-fluid">

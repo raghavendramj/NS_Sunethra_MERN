@@ -149,6 +149,22 @@ Exercise 2:-
 	-> Component2
 	-> Component3
 	-> InvalidComponent
+
+
+useContext
 	
+		pi -> 3.142
+	Component1 pi
+		Component2 -> piValue=pi
+		
+	Component2 -> function Component2(props){props.piValue}
+		Component3 -> piValue=props.piValue
+		
+	Component3 -> function Component2(props){props.piValue}
+		Component4 -> piValue=props.piValue
+		
+	Component4 -> function Component2(props){props.piValue}
+	
+
 
 

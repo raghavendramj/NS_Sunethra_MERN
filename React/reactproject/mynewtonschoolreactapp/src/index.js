@@ -22,6 +22,8 @@ import UseEffectHook from "./hooks/UseEffect";
 import SecondUseEffectExample from "./hooks/secondUseEffect";
 import UseContextHook from "./hooks/useContextProblem";
 import UseContextHookSolution from "./hooks/useContextSolution";
+import UseEffectThird from "./hooks/useEffectThird";
+import UseEffectWindowExample from "./hooks/useEffectWindow";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -64,7 +66,9 @@ root.render(
     {/* <UseEffectHook /> */}
     {/* <SecondUseEffectExample /> */}
     {/* <UseContextHook /> */}
-    <UseContextHookSolution />
+    {/* <UseContextHookSolution /> */}
+    {/* <UseEffectThird /> */}
+    <UseEffectWindowExample />
   </React.StrictMode>
 );
 
