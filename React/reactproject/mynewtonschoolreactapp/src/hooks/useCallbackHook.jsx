@@ -23,7 +23,9 @@ function UseCallBackHook() {
         <div className="container m-3" style={theme}>
             <h2>Number is :- {number}</h2>
             <input type="number" value={number} onChange={event => setNumber(parseInt(event.target.value))} />
-            <button onClick={() => setDark(curDark => !curDark)} className="btn btn-primary m-2">Toggle Theme</button>
+            <button onClick={() => setDark((currentValue) => {
+                return !currentValue;
+            })} className="btn btn-primary m-2">Toggle Theme</button>
             <List getItems={getItems} />
         </div>
     );
