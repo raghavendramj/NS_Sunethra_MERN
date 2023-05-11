@@ -28,6 +28,7 @@ import UseMemoHook from "./hooks/UseMemoHook";
 import UseCallBackHook from "./hooks/useCallbackHook"; 
 import UseRefExample_01 from "./hooks/UseRefExample_01";
 import UseRefExample_02 from "./hooks/UseRefExample_02";
+import UseRefExample_03 from "./hooks/UseRefExample_03";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -76,7 +77,9 @@ root.render(
     {/* <UseMemoHook /> */}
     {/* <UseCallBackHook /> */}
     {/* <UseRefExample_01 /> */}
-    <UseRefExample_02 />
+    {/* <UseRefExample_02 /> */}
+    {/* <UseRefExample_03 /> */}
+    <BasicForms />
   </React.StrictMode>
 );
 
