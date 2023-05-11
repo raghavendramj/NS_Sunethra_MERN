@@ -29,6 +29,7 @@ import UseCallBackHook from "./hooks/useCallbackHook";
 import UseRefExample_01 from "./hooks/UseRefExample_01";
 import UseRefExample_02 from "./hooks/UseRefExample_02";
 import UseRefExample_03 from "./hooks/UseRefExample_03";
+import FormWithMultipleFields from "./forms/FormWithMultipleFields";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -79,7 +80,8 @@ root.render(
     {/* <UseRefExample_01 /> */}
     {/* <UseRefExample_02 /> */}
     {/* <UseRefExample_03 /> */}
-    <BasicForms />
+    {/* <BasicForms /> */}
+    <FormWithMultipleFields />
   </React.StrictMode>
 );
 
