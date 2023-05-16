@@ -46,7 +46,7 @@ function FormWithMultipleFields() {
         }
         checkedItems.push(value);
         checkedItems = Array.from(new Set(checkedItems));
-        setInputs(values => ({ ...values, [nameOfTheInput]: [...checkedItems] }));  
+        setInputs(values => ({ ...values, [nameOfTheInput]: [...checkedItems] }));
         console.log("inputs :- ", inputs);
     }
 
