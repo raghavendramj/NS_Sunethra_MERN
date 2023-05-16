@@ -87,6 +87,18 @@ function FormWithMultipleFields() {
                         <td><input type="radio" name="martialStatus" value="unmarried" checked={inputs.checked} onChange={handleChange} /> Unmarried</td>
                     </tr>
                     <tr>
+                        <td><label htmlFor="city">City :- </label></td>
+                        <td>
+                            <select name="city" id="city" onChange={handleChange}>
+                                <option value=""></option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Delhi">Delhi</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td><label htmlFor="phoneNumber">Hobbies:- </label></td>
                         {hobbies.map(eachHobbie => {
                             return <td><input type="checkbox" key={eachHobbie.id} name="hobbies" value={eachHobbie.value} onChange={handleCheckBoxes} /> {eachHobbie.value}</td>
