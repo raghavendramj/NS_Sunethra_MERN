@@ -11,15 +11,18 @@ function FormWithMultipleFields() {
     ];
 
     const handleChange = (event) => {
-        const inputName = event.target.name; //input element's key
-        //inputs value
-        // const inputValue = event.target.type === 'radio' ? event.target.checked : event.target.value;
+        const inputName = event.target.name; //input element's key 
+        if (event.target.type === 'checkbox') {
+            setInputs(values => ({ ...values, [inputName]: event.target.checked }));
+            return;
+        }
+        //Other input elements -> text, number, radio
         const inputValue = event.target.value;
         console.log("handleChange :: Entered Values :- ", inputs);
         setInputs(values => ({ ...values, [inputName]: inputValue }));
     }
 
-
+    //Corner Case -> Interview Case!
     const handleCheckBoxes = (event) => {
         if (event.target.type !== 'checkbox') {
             return;
@@ -40,12 +43,10 @@ function FormWithMultipleFields() {
         //Check Case
         if (isEmptyArray) {
             checkedItems = new Array();
-        }  
+        }
         checkedItems.push(value);
         checkedItems = Array.from(new Set(checkedItems));
-        setInputs(values => ({ ...values, [nameOfTheInput]: [...checkedItems] }));
-
-
+        setInputs(values => ({ ...values, [nameOfTheInput]: [...checkedItems] }));  
         console.log("inputs :- ", inputs);
     }
 
@@ -90,6 +91,9 @@ function FormWithMultipleFields() {
                         {hobbies.map(eachHobbie => {
                             return <td><input type="checkbox" key={eachHobbie.id} name="hobbies" value={eachHobbie.value} onChange={handleCheckBoxes} /> {eachHobbie.value}</td>
                         })}
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="terms" value="terms" checked={inputs.checked} onChange={handleChange} /> I accept all terms and conditions!</td>
                     </tr>
                     <tr>
                         <input type="submit" className="mt-3 btn btn-primary" value="Submit Form" />
