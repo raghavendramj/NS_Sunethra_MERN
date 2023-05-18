@@ -13,9 +13,8 @@ function HomePage() {
                     <Route path="/contactus" element={<ContactUs />}></Route>
                     <Route path="*" element={<PageNotFound />}></Route>
                 </Routes>
-            </BrowserRouter>  
-        </div> 
-
+            </BrowserRouter>
+        </div>
     );
 }
 

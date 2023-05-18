@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BasicForms from "../forms/BasicForms";
 
 function Landing() {
+
+    const navigate = useNavigate();
+
     return (
         <div className="container">
             <h1>Welcome to Router Session</h1>
-            <ul class="nav">
+            {/* <ul class="nav">
                 <li class="nav-item">
                     <Link class="nav-link active" to="/">Landing</Link>
                 </li>
@@ -13,7 +16,9 @@ function Landing() {
                     <Link class="nav-link" to="/contactus">Contact Us</Link>
                 </li>
             </ul>
-            <BasicForms />
+            <BasicForms /> */}
+
+            <button className="btn btn-primary" onClick={() => navigate("/contactus")}>Contact Us!</button>
         </div>
     );
 }
