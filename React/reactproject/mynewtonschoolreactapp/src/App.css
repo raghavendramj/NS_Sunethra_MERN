@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+.makeitbig{
+  font-size: 40px;
+  color: red;
+  padding: 20px;
+}
