@@ -9,10 +9,9 @@ function HomePage() {
         <div className="container m-5">
             <BrowserRouter>
                 <ul className="nav">
-                    <li className="nav-item"><NavLink className="nav-link" to="/home" style={(({ isActive }) => ({ color: isActive ? 'red' : 'black' }))}>Home</NavLink></li>
-                    <li className="nav-item"><NavLink className="nav-link" to="/about" style={(({ isActive }) => ({ color: isActive ? 'red' : 'black' }))}>About</NavLink></li>
+                     <li className="nav-item"><NavLink className="nav-link" to="/about" style={(({ isActive }) => ({ color: isActive ? 'red' : 'black' }))}>About</NavLink></li>
                     <li className="nav-item"><NavLink className="nav-link" to="/landing" style={(({ isActive }) => ({ color: isActive ? 'red' : 'black' }))}>Landing</NavLink></li>
-                    <li className="nav-item"><NavLink  className="nav-link" to="/contactus" style={(({ isActive }) => ({ color: isActive ? 'red' : 'black' }))}>ContactUs</NavLink></li>
+                    <li className="nav-item"><NavLink className="nav-link" to="/contactus" style={(({ isActive }) => ({ color: isActive ? 'red' : 'black' }))}>ContactUs</NavLink></li>
                 </ul>
                 <Routes>
                     <Route path="/" element={<Landing />}></Route>
