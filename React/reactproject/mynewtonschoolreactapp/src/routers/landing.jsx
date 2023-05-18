@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import BasicForms from "../forms/BasicForms";
+import NavLinkExample from "./navlinkExample";
 
 function Landing() {
 
@@ -18,7 +19,7 @@ function Landing() {
             </ul>
             <BasicForms /> */}
 
-            <button className="btn btn-primary" onClick={() => navigate("/contactus")}>Contact Us!</button>
+            <button className="btn btn-primary" onClick={() => navigate("/contactus")}>Contact Us!</button> 
         </div>
     );
 }
