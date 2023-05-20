@@ -1,5 +1,6 @@
 [
   {
+    "id":1,
     "author": "Jane Austen",
     "country": "United Kingdom",
     "imageLink": "images/pride-and-prejudice.jpg",
@@ -10,6 +11,7 @@
     "year": 1813
   },
   {
+    "id":2,
     "author": "Honor\u00e9 de Balzac",
     "country": "France",
     "imageLink": "images/le-pere-goriot.jpg",
@@ -20,6 +22,7 @@
     "year": 1835
   },
   {
+    "id":3,
     "author": "Samuel Beckett",
     "country": "Republic of Ireland",
     "imageLink": "images/molloy-malone-dies-the-unnamable.jpg",
@@ -30,6 +33,7 @@
     "year": 1952
   },
   {
+    "id":4,
     "author": "Giovanni Boccaccio",
     "country": "Italy",
     "imageLink": "images/the-decameron.jpg",
@@ -40,6 +44,7 @@
     "year": 1351
   },
   {
+    "id":5,
     "author": "Jorge Luis Borges",
     "country": "Argentina",
     "imageLink": "images/ficciones.jpg",
@@ -50,6 +55,7 @@
     "year": 1965
   },
   {
+    "id":6,
     "author": "Emily Bront\u00eb",
     "country": "United Kingdom",
     "imageLink": "images/wuthering-heights.jpg",
@@ -60,6 +66,7 @@
     "year": 1847
   },
   {
+    "id":7,
     "author": "Albert Camus",
     "country": "Algeria, French Empire",
     "imageLink": "images/l-etranger.jpg",
@@ -70,6 +77,7 @@
     "year": 1942
   },
   {
+    "id":8,
     "author": "Paul Celan",
     "country": "Romania, France",
     "imageLink": "images/poems-paul-celan.jpg",
@@ -80,6 +88,7 @@
     "year": 1952
   },
   {
+    "id":9,
     "author": "Louis-Ferdinand C\u00e9line",
     "country": "France",
     "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
@@ -90,6 +99,7 @@
     "year": 1932
   },
   {
+    "id":10,
     "author": "Miguel de Cervantes",
     "country": "Spain",
     "imageLink": "images/don-quijote-de-la-mancha.jpg",
@@ -100,6 +110,7 @@
     "year": 1610
   },
   {
+    "id":11,
     "author": "Geoffrey Chaucer",
     "country": "England",
     "imageLink": "images/the-canterbury-tales.jpg",
@@ -110,6 +121,7 @@
     "year": 1450
   },
   {
+    "id":12,
     "author": "Anton Chekhov",
     "country": "Russia",
     "imageLink": "images/stories-of-anton-chekhov.jpg",
@@ -120,6 +132,7 @@
     "year": 1886
   },
   {
+    "id":13,
     "author": "Joseph Conrad",
     "country": "United Kingdom",
     "imageLink": "images/nostromo.jpg",
@@ -130,6 +143,7 @@
     "year": 1904
   },
   {
+    "id":14,
     "author": "Charles Dickens",
     "country": "United Kingdom",
     "imageLink": "images/great-expectations.jpg",
@@ -140,6 +154,7 @@
     "year": 1861
   },
   {
+    "id":15,
     "author": "Denis Diderot",
     "country": "France",
     "imageLink": "images/jacques-the-fatalist.jpg",
@@ -148,235 +163,5 @@
     "pages": 596,
     "title": "Jacques the Fatalist",
     "year": 1796
-  },
-  {
-    "author": "Alfred D\u00f6blin",
-    "country": "Germany",
-    "imageLink": "images/berlin-alexanderplatz.jpg",
-    "language": "German",
-    "link": "https://en.wikipedia.org/wiki/Berlin_Alexanderplatz\n",
-    "pages": 600,
-    "title": "Berlin Alexanderplatz",
-    "year": 1929
-  },
-  {
-    "author": "Fyodor Dostoevsky",
-    "country": "Russia",
-    "imageLink": "images/crime-and-punishment.jpg",
-    "language": "Russian",
-    "link": "https://en.wikipedia.org/wiki/Crime_and_Punishment\n",
-    "pages": 551,
-    "title": "Crime and Punishment",
-    "year": 1866
-  },
-  {
-    "author": "Fyodor Dostoevsky",
-    "country": "Russia",
-    "imageLink": "images/the-idiot.jpg",
-    "language": "Russian",
-    "link": "https://en.wikipedia.org/wiki/The_Idiot\n",
-    "pages": 656,
-    "title": "The Idiot",
-    "year": 1869
-  },
-  {
-    "author": "Fyodor Dostoevsky",
-    "country": "Russia",
-    "imageLink": "images/the-possessed.jpg",
-    "language": "Russian",
-    "link": "https://en.wikipedia.org/wiki/Demons_(Dostoyevsky_novel)\n",
-    "pages": 768,
-    "title": "The Possessed",
-    "year": 1872
-  },
-  {
-    "author": "Fyodor Dostoevsky",
-    "country": "Russia",
-    "imageLink": "images/the-brothers-karamazov.jpg",
-    "language": "Russian",
-    "link": "https://en.wikipedia.org/wiki/The_Brothers_Karamazov\n",
-    "pages": 824,
-    "title": "The Brothers Karamazov",
-    "year": 1880
-  },
-  {
-    "author": "George Eliot",
-    "country": "United Kingdom",
-    "imageLink": "images/middlemarch.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/Middlemarch\n",
-    "pages": 800,
-    "title": "Middlemarch",
-    "year": 1871
-  },
-  {
-    "author": "Ralph Ellison",
-    "country": "United States",
-    "imageLink": "images/invisible-man.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/Invisible_Man\n",
-    "pages": 581,
-    "title": "Invisible Man",
-    "year": 1952
-  },
-  {
-    "author": "Euripides",
-    "country": "Greece",
-    "imageLink": "images/medea.jpg",
-    "language": "Greek",
-    "link": "https://en.wikipedia.org/wiki/Medea_(play)\n",
-    "pages": 104,
-    "title": "Medea",
-    "year": -431
-  },
-  {
-    "author": "William Faulkner",
-    "country": "United States",
-    "imageLink": "images/absalom-absalom.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/Absalom,_Absalom!\n",
-    "pages": 313,
-    "title": "Absalom, Absalom!",
-    "year": 1936
-  },
-  {
-    "author": "William Faulkner",
-    "country": "United States",
-    "imageLink": "images/the-sound-and-the-fury.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/The_Sound_and_the_Fury\n",
-    "pages": 326,
-    "title": "The Sound and the Fury",
-    "year": 1929
-  },
-  {
-    "author": "Gustave Flaubert",
-    "country": "France",
-    "imageLink": "images/madame-bovary.jpg",
-    "language": "French",
-    "link": "https://en.wikipedia.org/wiki/Madame_Bovary\n",
-    "pages": 528,
-    "title": "Madame Bovary",
-    "year": 1857
-  },
-  {
-    "author": "Gustave Flaubert",
-    "country": "France",
-    "imageLink": "images/l-education-sentimentale.jpg",
-    "language": "French",
-    "link": "https://en.wikipedia.org/wiki/Sentimental_Education\n",
-    "pages": 606,
-    "title": "Sentimental Education",
-    "year": 1869
-  },
-  {
-    "author": "Federico Garc\u00eda Lorca",
-    "country": "Spain",
-    "imageLink": "images/gypsy-ballads.jpg",
-    "language": "Spanish",
-    "link": "https://en.wikipedia.org/wiki/Gypsy_Ballads\n",
-    "pages": 218,
-    "title": "Gypsy Ballads",
-    "year": 1928
-  },
-  {
-    "author": "Gabriel Garc\u00eda M\u00e1rquez",
-    "country": "Colombia",
-    "imageLink": "images/one-hundred-years-of-solitude.jpg",
-    "language": "Spanish",
-    "link": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude\n",
-    "pages": 417,
-    "title": "One Hundred Years of Solitude",
-    "year": 1967
-  },
-  {
-    "author": "Gabriel Garc\u00eda M\u00e1rquez",
-    "country": "Colombia",
-    "imageLink": "images/love-in-the-time-of-cholera.jpg",
-    "language": "Spanish",
-    "link": "https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera\n",
-    "pages": 368,
-    "title": "Love in the Time of Cholera",
-    "year": 1985
-  },
-  {
-    "author": "Johann Wolfgang von Goethe",
-    "country": "Saxe-Weimar",
-    "imageLink": "images/faust.jpg",
-    "language": "German",
-    "link": "https://en.wikipedia.org/wiki/Goethe%27s_Faust\n",
-    "pages": 158,
-    "title": "Faust",
-    "year": 1832
-  },
-  {
-    "author": "Nikolai Gogol",
-    "country": "Russia",
-    "imageLink": "images/dead-souls.jpg",
-    "language": "Russian",
-    "link": "https://en.wikipedia.org/wiki/Dead_Souls\n",
-    "pages": 432,
-    "title": "Dead Souls",
-    "year": 1842
-  },
-  {
-    "author": "G\u00fcnter Grass",
-    "country": "Germany",
-    "imageLink": "images/the-tin-drum.jpg",
-    "language": "German",
-    "link": "https://en.wikipedia.org/wiki/The_Tin_Drum\n",
-    "pages": 600,
-    "title": "The Tin Drum",
-    "year": 1959
-  },
-  {
-    "author": "Jo\u00e3o Guimar\u00e3es Rosa",
-    "country": "Brazil",
-    "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
-    "language": "Portuguese",
-    "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands\n",
-    "pages": 494,
-    "title": "The Devil to Pay in the Backlands",
-    "year": 1956
-  },
-  {
-    "author": "Knut Hamsun",
-    "country": "Norway",
-    "imageLink": "images/hunger.jpg",
-    "language": "Norwegian",
-    "link": "https://en.wikipedia.org/wiki/Hunger_(Hamsun_novel)\n",
-    "pages": 176,
-    "title": "Hunger",
-    "year": 1890
-  },
-  {
-    "author": "Ernest Hemingway",
-    "country": "United States",
-    "imageLink": "images/the-old-man-and-the-sea.jpg",
-    "language": "English",
-    "link": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea\n",
-    "pages": 128,
-    "title": "The Old Man and the Sea",
-    "year": 1952
-  },
-  {
-    "author": "Homer",
-    "country": "Greece",
-    "imageLink": "images/the-iliad-of-homer.jpg",
-    "language": "Greek",
-    "link": "https://en.wikipedia.org/wiki/Iliad\n",
-    "pages": 608,
-    "title": "Iliad",
-    "year": -735
-  },
-  {
-    "author": "Homer",
-    "country": "Greece",
-    "imageLink": "images/the-odyssey-of-homer.jpg",
-    "language": "Greek",
-    "link": "https://en.wikipedia.org/wiki/Odyssey\n",
-    "pages": 374,
-    "title": "Odyssey",
-    "year": -800
   }
 ]
