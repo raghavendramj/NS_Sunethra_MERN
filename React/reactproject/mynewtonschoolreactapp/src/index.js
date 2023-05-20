@@ -32,6 +32,7 @@ import UseRefExample_03 from "./hooks/UseRefExample_03";
 import FormWithMultipleFields from "./forms/FormWithMultipleFields";
 import HomePage from "./routers/home";
 import BasicStyles from "./styles/baiscStyles";
+import Exercise_01 from "./routers/exercise/exercise";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const carsArr = ["Ford", "Benz", "Hyndai"];
@@ -85,7 +86,8 @@ root.render(
     {/* <BasicForms /> */}
     {/* <FormWithMultipleFields /> */}
     {/* <HomePage /> */}
-    <BasicStyles />
+    {/* <BasicStyles /> */}
+    <Exercise_01 />
   </React.StrictMode>
 );
 
