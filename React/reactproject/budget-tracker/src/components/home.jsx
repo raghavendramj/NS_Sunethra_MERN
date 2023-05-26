@@ -17,7 +17,7 @@ function Home() {
                 <Button variant="outline-primary">Add Expense</Button>
             </Stack>
             <div style={divStyle}></div>
-            <BudgetCard name="Entertainment" amount={810} max={1000}>
+            <BudgetCard name="Entertainment" amount={1100} max={1000}>
             </BudgetCard>
             <BudgetCard name="Studies" amount={300} max={1000}>
             </BudgetCard>
