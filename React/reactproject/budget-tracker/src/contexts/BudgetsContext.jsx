@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { v4 as uuidV4 } from 'uuid';
+import React, { useContext } from 'react';
+import { v4 as uuidV4 } from 'uuid'; //get random id..
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const BudgetsContext = React.createContext();
@@ -33,6 +33,7 @@ export const BudgetsProvider = ({ children }) => {
     function getBudgetExpense(budgetId) {
         return expenses.filter(expense => expense.budgetId == budgetId);
     }
+
     function addBudget({ name, max }) {
         setBudgets(prevBudgets => {
             //To Avoid duplicates
@@ -52,7 +53,7 @@ export const BudgetsProvider = ({ children }) => {
         setBudgets(prevBudgets => {
             return prevBudgets.filter(budget => budget.id !== id)
         })
-    } 
+    }
 
     function deleteExpense({ id }) {
         //TODO: Deal with expenses
