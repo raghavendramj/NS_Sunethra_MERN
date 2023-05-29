@@ -5,7 +5,7 @@ function BudgetCard({ name, amount, max, gray }) {
 
     const titleStyle = "d-flex justify-content-between align-items-baseline fw-normal mb-3";
 
-    const classNames = []; 
+    const classNames = ["mb-3"]; 
     if (amount > max) {
         classNames.push("bg-danger", "bg-opacity-10");
     } else if (gray) {
