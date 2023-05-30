@@ -3,6 +3,7 @@ import { v4 as uuidV4 } from 'uuid'; //get random id..
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const BudgetsContext = React.createContext();
+export const UNCATEGORIZED_BUDGET_ID = "Uncategorized";
 
 export function useBudgets() {
     return useContext(BudgetsContext);
@@ -31,7 +32,6 @@ export const BudgetsProvider = ({ children }) => {
     const [expenses, setExpenses] = useLocalStorage("expenses", []);
 
     function getBudgetExpense(budgetId) {
-        console.log("budgetId -> ", budgetId);
         return expenses.filter(expense => expense.budgetId == budgetId);
     }
 
