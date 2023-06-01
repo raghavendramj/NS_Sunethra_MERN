@@ -13,10 +13,12 @@ function Home() {
     const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
     const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
     const [viewExpenseModalBudgetId, setViewExpenseModalBudgetId] = useState();
+    const [addExpenseModalBudgetId, setAddExpenseModalBudgetId] = useState();
     const { budgets, expenses, getBudgetExpense } = useBudgets();
 
-    function openAddExpenseModal() {
+    function openAddExpenseModal(budgetId) {
         setShowAddExpenseModal(true);
+        setAddExpenseModalBudgetId(budgetId);
     }
 
     let divStyle = {
@@ -36,14 +38,14 @@ function Home() {
                 <div style={divStyle}></div>
                 {
                     budgets.map(budget => {
-                        let expensesForBudget = getBudgetExpense(budget.name);
+                        let expensesForBudget = getBudgetExpense(budget.id);
                         const sumOfExpesesAmount = expensesForBudget.reduce((total, expense) => total + expense.amount, 0);
                         return (<BudgetCard
                             key={budget.id}
                             name={budget.name}
                             amount={sumOfExpesesAmount}
                             max={budget.max}
-                            onAddExpenseClick={() => openAddExpenseModal()}
+                            onAddExpenseClick={() => openAddExpenseModal(budget.id)}
                             onViewExpensesClick={() => setViewExpenseModalBudgetId(budget.id)}
                         >
                         </BudgetCard>
@@ -51,19 +53,25 @@ function Home() {
                     })
                 }
                 <UncatrgorizedBudgetCard
-                    onAddExpenseClick={() => openAddExpenseModal()}
+                    onAddExpenseClick={() => openAddExpenseModal(UNCATEGORIZED_BUDGET_ID)}
                     onViewExpensesClick={() => setViewExpenseModalBudgetId(UNCATEGORIZED_BUDGET_ID)}
                 />
                 <TotalBudgetCard />
 
             </Container>
-            <AddBudgetModal show={showAddBudgetModal} handleClose={() => setShowAddBudgetModal(false)}></AddBudgetModal>
-            <AddExpenseModal show={showAddExpenseModal} handleClose={() => setShowAddExpenseModal(false)}></AddExpenseModal>
+            <AddBudgetModal
+                show={showAddBudgetModal}
+                handleClose={() => setShowAddBudgetModal(false)}
+            />
+            <AddExpenseModal
+                show={showAddExpenseModal}
+                defaultBudgetId={addExpenseModalBudgetId}
+                handleClose={() => setShowAddExpenseModal(false)}
+            />
             <ViewExpensesModal
                 budgetId={viewExpenseModalBudgetId}
-                handleClose={() => setViewExpenseModalBudgetId()}>
-
-            </ViewExpensesModal>
+                handleClose={() => setViewExpenseModalBudgetId()}
+            />
         </>
     );
 }

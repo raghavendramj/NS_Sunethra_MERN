@@ -50,7 +50,7 @@ function AddExpenseModal({ show, handleClose, defaultBudgetId }) {
                         ref={budgetIdRef}
                     >
                         <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
-                        {budgets.map(budget => <option key={budget.id} value={budget.name}>{budget.name}</option>)}
+                        {budgets.map(budget => <option key={budget.id} value={budget.id}>{budget.name}</option>)}
                     </Form.Select>
                 </Form.Group>
                 <div className="d-flex justify-content-end">
