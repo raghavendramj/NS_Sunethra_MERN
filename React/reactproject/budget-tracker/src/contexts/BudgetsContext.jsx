@@ -32,7 +32,12 @@ export const BudgetsProvider = ({ children }) => {
     const [expenses, setExpenses] = useLocalStorage("expenses", []);
 
     function getBudgetExpense(budgetId) {
-        const filteredExpeses = expenses.filter(expense => expense.budgetId == budgetId);
+        console.log("BudgetId :- ", budgetId);
+        const filteredExpeses = expenses.filter(expense => {
+            console.log("BudgetId :- ", budgetId);
+            console.log("expense.budgetId :- ", expense.budgetId); 
+            return expense.budgetId == budgetId;
+        });
         //console.log("budgetId :- ", budgetId, "filteredExpeses :- ", filteredExpeses);
         return filteredExpeses;
     }
@@ -52,7 +57,19 @@ export const BudgetsProvider = ({ children }) => {
         })
     }
 
-    function deleteBudget({ id }) {
+    function deleteBudget({ id }) { 
+        //Modify the expenses's budget id.
+        setExpenses(prevExpenses => {
+            return prevExpenses.map(expense => { 
+                //Ignore for other budget Ids..
+                if (expense.budgetId !== id)
+                    return expense;
+                //Matching budget-id expense should be moved Uncategorized
+                return { ...expense, budgetId: UNCATEGORIZED_BUDGET_ID }
+            })
+        })
+
+        //Remove the budget from the list!
         setBudgets(prevBudgets => {
             return prevBudgets.filter(budget => budget.id !== id)
         })

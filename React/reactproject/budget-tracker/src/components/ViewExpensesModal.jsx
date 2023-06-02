@@ -3,16 +3,15 @@ import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '../contexts/BudgetsContext'
 import { Button, Modal, Stack } from 'react-bootstrap';
 import { currencyFormatter } from "../utilities/util"
 
-export default function ViewExpensesModal({ budgetId, handleClose }) { 
+export default function ViewExpensesModal({ budgetId, handleClose }) {
   const { getBudgetExpense, budgets, expenses, deleteBudget, deleteExpense } = useBudgets();
-
-  console.log("expenses :-", expenses);
   const budgetExpenses = expenses.filter(expense => expense.budgetId == budgetId);
-  console.log("budgetId :-", budgetId, "budgetExpenses :-", budgetExpenses);
 
   const budget = UNCATEGORIZED_BUDGET_ID === budgetId
     ? { name: "Uncategorized", id: UNCATEGORIZED_BUDGET_ID }
-    : budgets.find(b => b.id === budgetId); 
+    : budgets.find(b => b.id === budgetId);
+
+  console.log("budget.id :- ", budget);
 
   return (
     <Modal show={budgetId != null || budgetId === "undefined"} onHide={handleClose}>
@@ -22,7 +21,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
             <div>Expenses - {budget?.name}</div>
             {budgetId != UNCATEGORIZED_BUDGET_ID &&
               <Button onClick={() => {
-                deleteBudget(budgetId);
+                deleteBudget(budget);
                 handleClose();
               }} variant='outline-danger'>Delete</Button>
             }
