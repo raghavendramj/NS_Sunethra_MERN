@@ -10,12 +10,12 @@ function AddBudgetModal({ show, handleClose }) {
     const { addBudget } = useBudgets();
 
     function handleSubmit(e) {
-        e.preventDefault();
-
-        addBudget({
+        e.preventDefault(); 
+        let budgetObj = {
             name: nameRef.current.value,
             max: parseFloat(maxRef.current.value),
-        });
+        }; 
+        addBudget(budgetObj);
         handleClose();
     }
 
