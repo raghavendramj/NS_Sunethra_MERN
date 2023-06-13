@@ -1,0 +1,72 @@
+Redux
+
+Redux is a pattern and library for managing and updating application state, using events called "actions". 
+It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.
+
+Why Should I Use Redux?
+Redux helps you manage "global" state - state that is needed across many parts of your application.
+
+When Should I Use Redux?
+	Redux helps you deal with shared state management, but like any tool, it has tradeoffs. 
+	There are more concepts to learn, and more code to write. 
+	It also adds some indirection to your code, and asks you to follow certain restrictions. 
+	It's a trade-off between short term and long term productivity.
+
+Redux is more useful when:
+	You have large amounts of application state that are needed in many places in the app
+	The app state is updated frequently over time
+	The logic to update that state may be complex
+	The app has a medium or large-sized codebase, and might be worked on by many people
+	
+Parts of this app:-
+	The state, the source of truth that drives our app;
+	The view, a declarative description of the UI based on the current state
+	The actions, the events that occur in the app based on user input, and trigger updates in the state
+
+This is a small example of "one-way data flow":
+
+	State describes the condition of the app at a specific point in time
+	The UI is rendered based on that state
+	When something happens (such as a user clicking a button), the state is updated based on what occurred
+	The UI re-renders based on the new state
+
+Actions
+--------------
+	An action is a plain JavaScript object that has a type field. You can think of an action as an event that describes something that happened in the application.
+
+
+Action
+--------------
+Simple Object	-> const addToDoAction = {
+		type: 'todos/add',
+		payload: 'Need to purchase pen and pencils'
+	}
+Action Creators	->	const addTodo = (text) => {
+		return {
+			type: 'todos/add',
+			payload: text
+		}
+	} 
+	addTodo("Buy Milk");
+	addTodo("Check Login!");
+	addTodo("Buy Watches!");
+	
+	
+Reducer
+	-> function that receives the current state and an action. 
+	-> it decides how to update the state if necessary
+	-> returns new state.
+	
+	(state, action) => newState
+	
+Reducers must always follow some specific rules:
+
+	They should only calculate the new state value based on the state and action arguments
+	They are not allowed to modify the existing state. Instead, they must make immutable updates, by copying the existing state and making changes to the copied values.
+	They must not do any asynchronous logic, calculate random values, or cause other "side effects"
+	
+	
+const initialState = {value : 0}
+
+function counterReducer(state = initialState, action){
+}
