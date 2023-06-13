@@ -60,7 +60,7 @@ Reducer
 	(state, action) => newState
 	
 Reducers must always follow some specific rules:
-
+------------------------------------------------
 	They should only calculate the new state value based on the state and action arguments
 	They are not allowed to modify the existing state. Instead, they must make immutable updates, by copying the existing state and making changes to the copied values.
 	They must not do any asynchronous logic, calculate random values, or cause other "side effects"
@@ -68,5 +68,30 @@ Reducers must always follow some specific rules:
 	
 const initialState = {value : 0}
 
-function counterReducer(state = initialState, action){
+function counterReducer(action, state = initialState) {
+  //Check for type of action..a
+  if (action.type === "counter/increment") {
+    console.log("initialState State :- ", initialState);
+    return {
+      ...state,
+      value: state.value + 1,
+    };
+  }
+  return state;
 }
+
+//STORE
+import { configureStore } from '@reduxjs/toolkit'
+const store = configureStore({ reducer: counterReducer });
+
+//Fetch the data from store
+-----------------------------
+console.log(store.getState());
+
+Dispatch the action to store.
+-----------------------------
+store.dispatch({ type: 'counter/increment' });
+
+The only way to update the state is to call store.dispatch() and pass in an action object. 
+The store will run its reducer function and save the new state value inside, and 
+we can call getState() to retrieve the updated value.

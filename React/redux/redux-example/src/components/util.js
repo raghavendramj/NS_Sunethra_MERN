@@ -36,7 +36,7 @@ function defaultValueTest(a, b = 12) {
 defaultValueTest(13);
 defaultValueTest(13, 17);
 
-//Simple Object	->
+//ACTION :- Simple Action Object	->
 const addToDoAction = {
   type: "todos/add",
   payload: "Need to purchase pen and pencils",
@@ -51,6 +51,7 @@ const addTodo = (text) => {
 
 const initialState = { value: 0 };
 
+//REDUCDER :-
 function counterReducer(action, state = initialState) {
   //Check for type of action..a
   if (action.type === "counter/increment") {
@@ -70,3 +71,5 @@ for (let i = 0; i < 10; i++) {
   newState = counterReducer(incrementAction, newState);
   console.log("Retured State :- ", newState);
 }
+
+
