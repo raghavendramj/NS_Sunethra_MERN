@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { createStore } from "redux";
 
 //2. Reducer is invoked for dispatched action, and modifies the state accordingly
@@ -19,18 +20,15 @@ const reducer = (state = 0, action) => {
 
     console.log("Reducer invoked! :- ", state);
     return state;
-}
-
+} 
 export const store = createStore(reducer);
-
 
 //3. This will tell us the current state value.
 store.subscribe(() => {
     console.log("Current State :- ", store.getState());
 })
 
-
-
+//Manual way of invoking dispatch action
 //1. Action is dispatched
 store.dispatch({
     type: 'increment'
@@ -47,8 +45,8 @@ store.dispatch({
 store.dispatch({
     type: 'increment',
     payload: 5
-}); 
- 
+});
+
 store.dispatch({
     type: 'increment',
     payload: 14
