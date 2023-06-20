@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { createStore } from "redux";
 
 //2. Reducer is invoked for dispatched action, and modifies the state accordingly
