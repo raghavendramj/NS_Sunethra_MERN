@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 export default function UseEffectHook() {
 
     const [resourceType, setResourceType] = useState("posts");
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]); 
 
     useEffect(() => {
         console.log(`useEffect is called ${resourceType}`);
