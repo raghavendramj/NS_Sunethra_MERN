@@ -3,6 +3,7 @@ import './App.css';
 import UsestateHook from './components/usestate';
 import UseEffectHook from './components/useeffect';
 import UseEffectHookSquare from './components/useEffect_square';
+import Usecallbak from './components/usecallbak';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <h2>Welcome to React Topics Revision!</h2>
       {/* <UsestateHook /> */}
       {/* <UseEffectHook /> */}
-      <UseEffectHookSquare />
+      {/* <UseEffectHookSquare /> */}
+      <Usecallbak />
     </div>
   );
 }
