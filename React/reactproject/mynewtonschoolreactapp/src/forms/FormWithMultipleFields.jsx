@@ -83,8 +83,8 @@ function FormWithMultipleFields() {
                     </tr>
                     <tr>
                         <td><label htmlFor="phoneNumber">Married Status:- </label></td>
-                        <td><input type="radio" name="martialStatus" value="married" checked={inputs.checked} onChange={handleChange} /> Married</td>
-                        <td><input type="radio" name="martialStatus" value="unmarried" checked={inputs.checked} onChange={handleChange} /> Unmarried</td>
+                        <td><input type="radio" name="martialStatus" value="married" onChange={handleChange} /> Married</td>
+                        <td><input type="radio" name="martialStatus" value="unmarried" onChange={handleChange} /> Unmarried</td>
                     </tr>
                     <tr>
                         <td><label htmlFor="city">City :- </label></td>

@@ -6,6 +6,7 @@ import UseEffectHookSquare from './components/useEffect_square';
 import Usecallbak from './components/usecallbak';
 import FormElements from './components/FormElements';
 import MultipleFormElements from './components/MultipleFormElements';
+import CheckBox from './components/CheckBox';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <UseEffectHookSquare /> */}
       {/* <Usecallbak /> */}
       {/* <FormElements /> */}
-      <MultipleFormElements />
+      {/* <MultipleFormElements /> */}
+      <CheckBox />
     </div>
   );
 }

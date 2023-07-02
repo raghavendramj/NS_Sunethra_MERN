@@ -38,15 +38,13 @@ export default function MultipleFormElements() {
                     <input type="radio"
                         className='m-2'
                         name="martialStatus"
-                        value="married"
-                        checked={inputs.checked}
+                        value="married" 
                         onChange={handleModifications}
                     /> Married
                     <input type="radio"
                         className='m-2'
                         name="martialStatus"
-                        value="unmarrried"
-                        checked={inputs.checked}
+                        value="unmarrried" 
                         onChange={handleModifications}
                     /> Unmarried
                 </div>
