@@ -44,3 +44,8 @@ setTimeout(() => {
     }
   });
 }, 2000);
+
+
+//Create a directory
+//Create 3 files
+//Add content to all the files.
