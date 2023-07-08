@@ -1,6 +1,7 @@
 const fs = require("fs");
+const path = require("path");
 
-const dirName = "./15_Directories";
+const directoryName = "15_Directories";
 
 const commonCallback = (err) => {
   if (err) {
@@ -10,21 +11,33 @@ const commonCallback = (err) => {
   }
 };
 
-fs.rmdir(dirName, commonCallback);
+fs.readdir(directoryName, (err, files) => {
+  if (err) {
+    console.log("Error occurred!");
+  } else {
+    console.log(files);
+    files.forEach((file) => {
+      const fileAbsName = __dirname + "\\" + directoryName + "\\" + file;
+      console.log("fileAbsName", fileAbsName);
+      fs.unlink(fileAbsName, commonCallback); 
+    });
+    fs.rmdir(directoryName, commonCallback);
+  }
+});
 
-setTimeout(() => {
-  fs.mkdir(dirName, (err) => {
+setTimeout(() => { 
+  fs.mkdir(directoryName, (err) => {
     if (err) {
       console.log("Directory Creation error!");
     } else {
       console.log("Successfully directory got created!");
       fs.writeFile(
-        dirName + "/15_writetest_01.txt",
+        directoryName + "/15_writetest_01.txt",
         "New Content -01 ",
         commonCallback
       );
       fs.writeFile(
-        dirName + "/15_writetest_02.txt",
+        directoryName + "/15_writetest_02.txt",
         "New Content -02 ",
         commonCallback
       );
