@@ -7,7 +7,7 @@ const zipFileName = "19_Zipped.txt.gz";
 let writeStream = fs.createWriteStream(zipFileName);
 
 readstream.pipe(zlib.createGzip()).pipe(writeStream);
-console.log("File compressed!");
+console.log("File compressed! -> ", zipFileName);
 //------------- Compression Logic END-------------------
 
 //------------- Extraction Logic START-------------------
@@ -16,5 +16,6 @@ setTimeout(() => {
   const inpStream = fs.createReadStream(zipFileName);
   const output = fs.createWriteStream("19_Extracted.txt");
   inpStream.pipe(zlib.createUnzip()).pipe(output);
+  console.log("Content File Extracted! -> 19_Extracted.txt");
 }, 1000);
 //------------- Extraction Logic END-------------------
