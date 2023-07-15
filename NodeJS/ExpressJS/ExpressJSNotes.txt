@@ -1,0 +1,53 @@
+Express.js is a small framework that works on top of Node.js web server functionality to simplify its APIs and add helpful new features. 
+It makes it easier to organize your application’s functionality with middleware and routing. 
+It adds helpful utilities to Node.js HTTP objects and facilitates the rendering of dynamic HTTP objects.
+
+Why Express ?
+	Develops Node.js web applications quickly and easily.
+	It’s simple to set up and personalize.
+	Allows you to define application routes using HTTP methods and URLs.
+	Includes a number of middleware modules that can be used to execute additional requests and responses activities.
+	Simple to interface with a variety of template engines, including Jade, Vash, and EJS.
+	Allows you to specify a middleware for handling errors.
+	
+Express.js Request Object Properties
+
+req.app
+req.body
+req.hostname
+...
+
+Request Object Methods...
+
+req.accepts(types)
+-------------------
+req.accepts("html")
+req.accepts("text/html")
+req.accepts("text/json")
+
+req.get(field)
+-------------------
+req.get("Content-Type");
+=> "text/plain"
+req.get("username");
+
+req.is(types)
+-------------------
+req.is("html")
+req.is("text/html")
+req.is("text/*")
+
+=> true/false
+
+
+request.param(name, [defaultVaue]);
+
+
+GET :- http://localhost:8082/users
+http://localhost:8082/users?username=Martin
+req.param("username") -> Martin  -> {
+id: 3,
+name: "Martin"
+}
+
+GET :- http://localhost:8082/users
