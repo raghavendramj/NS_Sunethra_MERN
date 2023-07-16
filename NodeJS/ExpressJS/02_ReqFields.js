@@ -10,6 +10,7 @@ const users = [
 function isNull(str) {
   return str === "" || str === null || str === undefined;
 }
+
 application.get("/users", (req, res) => {
   const username = req.param("username");
   console.log("hasUserName :- ", isNull(username));
