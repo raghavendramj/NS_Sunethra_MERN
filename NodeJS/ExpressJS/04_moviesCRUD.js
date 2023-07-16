@@ -22,7 +22,8 @@ function isNull(str) {
   return str === "" || str === null || str === undefined;
 }
 
-//Adding a movies!
+
+//Adding a movie!
 app.use(express.json());
 app.post("/api/movies", (req, res) => {
   console.log("Adding a movie for req :-", req.body); 
