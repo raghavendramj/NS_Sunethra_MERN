@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const joi = require("@hapi/joi");
 
 const cities = [
   { id: 1, name: "Bangalore", state: "Karnataka" },
@@ -20,31 +19,29 @@ app.get("/api/cities", (req, res) => {
 //Middleware in Node JS
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.post("/api/cities", (req, res) => {
+
+app.put("/api/cities", (req, res) => {
   console.log("Received Params :- ", req.body);
+  //Destructring the object
+  const { name, state, id } = req.body;
 
-  //JOI Framework Validation...
-  //Creating schema for validation
-  const schema = joi.object({
-    name: joi.string().min(3).required(),
-    state: joi.string().min(3).required(),
-    nu: joi.number().length(5),
-  });
-
-  //Validating against schema
-  const result = schema.validate(req.body);
-
-  //Checking for results!
-  if (result.error) {
-    const errMsg = result.error.details[0].message;
-    console.log("Result errMsg :-", errMsg);
-    res.status(400).send(errMsg);
+  //Data Validation
+  if (!name || name.length < 3) {
+    res.status(400).send("The name of the city is less than 3 characters");
     return;
   }
-  const { name, state } = req.body;
-  const newCity = { id: cities.length + 1, name, state };
-  cities.push(newCity);
-  res.send(newCity);
+
+  let cityPassed = cities.find((city) => city.id == id);
+
+  if (!cityPassed) {
+    res.send(`No city found for id ${id}`);
+    return;
+  }
+
+  //Update the city present in the cities
+  cityPassed.name = name;
+  cityPassed.state = state;
+  res.send(cityPassed);
 });
 
 const port = process.env.PORT || "8082";
