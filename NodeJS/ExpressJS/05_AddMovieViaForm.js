@@ -23,7 +23,7 @@ app.get("/api/movies", (req, res) => {
 });
 
 //Adding a movie!
-app.use(express.json());
+app.use(express.json()); //Middleware in Node JS
 app.use(express.urlencoded({ extended: true }));
 app.post("/api/movies", (req, res) => {
   console.log("Adding a movie for req :-", req.body);
