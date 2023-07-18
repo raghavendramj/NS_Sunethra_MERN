@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const joi = require("@hapi/joi");
 
 const cities = [
   { id: 1, name: "Bangalore", state: "Karnataka" },
@@ -21,15 +22,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.post("/api/cities", (req, res) => {
   console.log("Received Params :- ", req.body);
-  //Destructring the object
-  const { name, state } = req.body;
 
-  //Data Validation
-  if (!name || name.length < 3) {
-    res.status(400).send("The name of the city is less than 3 characters");
+  //JOI Framework Validation...
+  //Creating schema for validation
+  const schema = joi.object({
+    name: joi.string().min(3).required(),
+    state: joi.string().min(3).required(),
+  });
+
+  //Validating against schema
+  const result = schema.validate(req.body);
+
+  //Checking for results!
+  if (result.error) {
+    const errMsg = result.error.details[0].message;
+    console.log("Result errMsg :-", errMsg);
+    res.status(400).send(errMsg);
     return;
   }
-
+  const { name, state } = req.body;
   const newCity = { id: cities.length + 1, name, state };
   cities.push(newCity);
   res.send(newCity);
