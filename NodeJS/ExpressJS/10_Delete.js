@@ -20,28 +20,26 @@ app.get("/api/cities", (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.put("/api/city", (req, res) => {
-  console.log("Received Params :- ", req.body);
+app.delete("/api/cities/:id", (req, res) => {
+  console.log("Received Params :- ", req.param("id"));
   //Destructring the object
-  const { name, state, id } = req.body;
-
+  const id = parseInt(req.param("id"));
   //Data Validation
-  if (!name || name.length < 3) {
+  if (id < 1) {
     res.status(400).send("The name of the city is less than 3 characters");
     return;
   }
 
-  let cityPassed = cities.find((city) => city.id == id);
+  let cityIndex = cities.findIndex((city) => city.id === id);
+  console.log("cityIndex :- ", cityIndex);
 
-  if (!cityPassed) {
+  if (cityIndex === -1) {
     res.send(`No city found for id ${id}`);
     return;
   }
-
-  //Update the city present in the cities
-  cityPassed.name = name;
-  cityPassed.state = state;
-  res.send(cityPassed);
+  //Delete city passed
+  cities.splice(cityIndex, 1);
+  res.send(cities);
 });
 
 const port = process.env.PORT || "8082";
