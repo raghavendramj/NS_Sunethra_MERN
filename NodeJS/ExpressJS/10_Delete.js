@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const cities = [
+let cities = [
   { id: 1, name: "Bangalore", state: "Karnataka" },
   { id: 2, name: "Nagpur", state: "Maharastra" },
   { id: 3, name: "Bangalore", state: "Karnataka" },
@@ -21,49 +21,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.delete("/api/cities/id/:id", (req, res) => {
-  console.log("Received Params :- ", req.param("id"));
-  //Destructring the object
   const id = parseInt(req.param("id"));
-  //Data Validation
-  if (id < 1) {
-    res.status(400).send("The name of the city is less than 3 characters");
-    return;
-  }
-
-  let cityIndex = cities.findIndex((city) => city.id === id);
-  console.log("cityIndex :- ", cityIndex);
-
-  if (cityIndex === -1) {
-    res.send(`No city found for id ${id}`);
-    return;
-  }
-  //Delete city passed
-  cities.splice(cityIndex, 1);
-  res.send(cities);
+  res.send(deleteCity("id", id));
 });
 
 app.delete("/api/cities/city/:city", (req, res) => {
-    console.log("Received Params :- ", req.param("id"));
-    //Destructring the object
-    const cityName = req.param("city");
-    //Data Validation
-    if (!cityName) {
-      res.status(400).send("The name of the city is less than 3 characters");
-      return;
-    }
-  
-    let cityIndex = cities.findIndex((city) => city.name === cityName);
-    console.log("cityIndex :- ", cityIndex);
-  
-    if (cityIndex === -1) {
-      res.send(`No city found for id ${cityName}`);
-      return;
-    }
-    //Delete city passed
-    cities.splice(cityIndex, 1);
-    res.send(cities);
-  });
-  
+  const city = req.param("city");
+  res.send(deleteCity("name", city));
+});
+
+app.delete("/api/cities/state/:state", (req, res) => {
+  const state = req.param("state");
+  res.send(deleteCity("state", state));
+});
+
+let deleteCity = (query, param) => { 
+  console.log(`query :- ${query}, param:- ${param}`); 
+
+  let cityIndex = cities.findIndex(city[query] === param);
+  console.log(`cityIndex :- ${cityIndex}`);
+  if (cityIndex == -1) {
+    return `No city found for city ${param}`;
+  } else {
+    let filteredCities = cities.filter((city) => city[query] !== param);
+    cities = filteredCities;
+    return filteredCities;
+  }
+};
 
 const port = process.env.PORT || "8082";
 app.listen(port, () => console.log(`Listening to port ${port}`));
