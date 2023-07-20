@@ -35,15 +35,15 @@ app.delete("/api/cities/state/:state", (req, res) => {
   res.send(deleteCity("state", state));
 });
 
-let deleteCity = (query, param) => { 
-  console.log(`query :- ${query}, param:- ${param}`); 
+let deleteCity = (query, requestParam) => {
+  console.log(`query :- ${query}, param:- ${requestParam}`);
 
-  let cityIndex = cities.findIndex(city[query] === param);
+  let cityIndex = cities.findIndex(city[query] === requestParam);
   console.log(`cityIndex :- ${cityIndex}`);
   if (cityIndex == -1) {
-    return `No city found for city ${param}`;
+    return `No city found for ${query} ${requestParam}`;
   } else {
-    let filteredCities = cities.filter((city) => city[query] !== param);
+    let filteredCities = cities.filter((city) => city[query] !== requestParam);
     cities = filteredCities;
     return filteredCities;
   }
