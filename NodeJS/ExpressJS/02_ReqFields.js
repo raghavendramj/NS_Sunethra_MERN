@@ -7,6 +7,13 @@ const users = [
   { id: 3, name: "Martin" },
 ];
 
+application.get("/api/users", (req, res) => {
+  res.send(users);
+});
+
+
+//--------------------------------------------------
+
 function isNull(str) {
   return str === "" || str === null || str === undefined;
 }

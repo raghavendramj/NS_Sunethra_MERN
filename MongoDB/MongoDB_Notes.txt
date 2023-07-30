@@ -1,0 +1,242 @@
+MongoDB Notes
+---------------
+MongoDB is a document database. It stores data in a type of JSON format called BSON.
+
+MongoDB is a No SQL database. 
+
+It is an open-source, cross-platform, document-oriented database written in C++.
+
+
+Purpose of Building MongoDB
+------------------------------
+All the modern applications require big data, fast features development, flexible deployment, and the older database systems not competent enough, so the MongoDB was needed.
+
+The primary purpose of building MongoDB is:
+---------------------------------------------
+Scalability
+Performance
+High Availability
+Scaling from single server deployments to large, complex multi-site architectures.
+Key points of MongoDB
+Develop Faster
+Deploy Easier
+Scale Bigger
+
+
+Features of MongoDB
+---------------------------------------------
+These are some important features of MongoDB:
+
+1. Support ad hoc queries
+	In MongoDB, you can search by field, range query and it also supports regular expression searches.
+2. Indexing
+	You can index any field in a document.
+3. Replication
+	MongoDB supports Master Slave replication.
+	A master can perform Reads and Writes and a Slave copies data from the master and can only be used for reads or back up (not writes)
+4. Duplication of data
+	MongoDB can run over multiple servers. The data is duplicated to keep the system up and also keep its running condition in case of hardware failure.
+5. Load balancing
+	It has an automatic load balancing configuration because of data placed in shards.
+6. Supports map reduce and aggregation tools.
+7. Uses JavaScript instead of Procedures.
+8. It is a schema-less database written in C++.
+9. Provides high performance.
+10. Stores files of any size easily without complicating your stack.
+11. Easy to administer in the case of failures.
+12. It also supports:
+	JSON data model with dynamic schemas
+	Auto-sharding for horizontal scalability
+	Built in replication for high availability
+	Now a day many companies using MongoDB to create new types of applications, improve performance and availability.
+	
+	
+
+Databases can be divided in 3 types
+------------------------------------
+	RDBMS (Relational Database Management System)
+	OLAP (Online Analytical Processing)
+	NoSQL (recently developed database)
+	
+NoSQL Database
+---------------
+	NoSQL Database is used to refer a non-SQL or non relational database.
+
+	It provides a mechanism for storage and retrieval of data other than tabular relations model used in relational databases. NoSQL database doesn't use tables for storing data. It is generally used to store big data and real-time web applications.
+	
+Advantages of NoSQL
+-------------------
+	It supports query language.
+	It provides fast performance.
+	It provides horizontal scalability.
+	
+	
+MongoDB Advantages
+------------------
+	MongoDB is schema less. It is a document database in which one collection holds different documents.
+	There may be difference between number of fields, content and size of the document from one to other.
+	Structure of a single object is clear in MongoDB.
+	There are no complex joins in MongoDB.
+	MongoDB provides the facility of deep query because it supports a powerful dynamic query on documents.
+	It is very easy to scale.
+	It uses internal memory for storing working sets and this is the reason of its fast access.
+	
+	
+MongoDB Datatypes
+-----------------
+String	String is the most commonly used datatype. It is used to store data. A string must be UTF 8 valid in mongodb.
+Integer	Integer is used to store the numeric value. It can be 32 bit or 64 bit depending on the server you are using.
+Boolean	This datatype is used to store boolean values. It just shows YES/NO values.
+Double	Double datatype stores floating point values.
+Min/Max Keys	This datatype compare a value against the lowest and highest bson elements.
+Arrays	This datatype is used to store a list or multiple values into a single key.
+Object	Object datatype is used for embedded documents.
+Null	It is used to store null values.
+Symbol	It is generally used for languages that use a specific type.
+Date	This datatype stores the current date or time in unix time format. It makes you possible to specify your own date time by creating object of date and pass the value of date, month, year into it.
+
+
+Data Modeling in MongoDB
+------------------------
+{
+	_id: POST_ID
+	title: TITLE_OF_POST,
+	description: POST_DESCRIPTION,
+	by: POST_BY,
+	url: URL_OF_POST,
+	tags: [TAG1, TAG2, TAG3],
+	likes: TOTAL_LIKES,
+	comments: [{
+			user: 'COMMENT_BY',
+			message: TEXT,
+			datecreated: DATE_TIME,
+			like: LIKES
+		},
+		{
+			user: 'COMMENT_BY',
+			message: TEST,
+			dateCreated: DATE_TIME,
+			like: LIKES
+		}]
+	}
+}
+
+
+https://www.mongodb.com/try/download/community
+
+Start the MongoDB:-
+
+Step1 :- Start the Daemon first: mongoD
+Step2 :- Start the mongo : mongo
+
+
+Create Database :- 
+	>use DATABASE_NAME  
+	ex:- use sunethra
+
+check the currently selected database
+	>db
+	
+create a collection: 
+	1st way :- db.createCollection("employee");
+	2nd way :- db.employee.insert({name:"Raghav", city:"Bangalore", age:29})
+	
+	db.department.insert({name:"CSE", city:"Bangalore"})
+	db.department.insert({name:"Finance", city:"Bangalore"})
+	db.department.insert({name:"Marketing", city:"Bangalore"})
+	db.department.insert({name:"Human Resource", city:"Bangalore"})
+	db.department.insert({name:"IT", city:"Bangalore"})
+	
+Insert Data into collection :- 
+
+	db.employee.insert({
+		"name": "Adam Gilchrist",
+		"age":31,
+		"zone": "East",
+		"department":"Marketing"
+	}); 
+	
+	db.employee.insert({
+		"name": "Rick Pointing",
+		"age":25,
+		"zone": "West",
+		"department":"Finance"
+	});
+------------------------------------------------
+insertOne :-
+
+	db.employee.insertOne({
+		"name": "Mathew Hayden",
+		"age": 36,
+		"zone": "East",
+		"department":"Technology"
+	});
+------------------------------------------------
+insertMany :- 
+	db.client.insertMany([
+	{
+		"name": "Abc Tech",
+		"country":"Australia",
+		"department":"Marketing"
+	},
+	{
+		"name": "KK Consultants",
+		"country":"England",
+		"department":"Human Resource"
+	},
+	{
+		"name": "Insights Limited",
+		"country":"India",
+		"department":"IT"
+	}
+	])
+------------------------------------------------
+
+DB Queries :-
+-------------
+> db.employee.find({zone:"East"}).pretty()
+> db.employee.find({"age":{$eq: 25}}).pretty()
+> db.employee.find({"age":{$not: {$eq: 25}}}).pretty()
+
+
+Sorting :- 
+	Ascending :- 
+		> db.employee.find().sort({'age': -1}).pretty();
+	Descending :-  
+		> db.employee.find().sort({'age': 1}).pretty();
+
+Limit :- 
+	> db.employee.find().limit(2)
+
+And :-
+	> db.employee.find({$and : [{"zone":"East"}, {"age":31}]}).pretty();
+	> db.employee.find({$and : [{"zone":"East"}, {"age":36}]}).pretty();
+
+Or :-
+	> db.employee.find({$or : [{"zone":"East"}, {"age":26}]}).pretty(); 
+	
+Searching :- 
+
+	Dropping Index:- 
+	
+	> db.employee.dropIndex("age_text")
+	> db.employee.getIndexes();
+	
+	
+	Step 1:- Create index 
+	> db.employee.createIndex({name:"text", zone:"text", department:"text"}) 
+	> db.employee.createIndex({age:"number"})
+	
+	Step 2:- Query
+	> db.employee.find({$text:{$search:"Technology"}}).pretty()
+	> db.employee.find({$text:{$search:"26"}}).pretty()
+	
+	
+	$gt
+	$gte
+	$in
+	$lt
+	$lte
+	$ne
+	$nin >db.employee.find({age: {$nin:[26]}})
+	
