@@ -1,0 +1,104 @@
+
+
+Create Database :-
+	>use DATABASE_NAME
+	ex:- use sunethra
+
+check the currently selected database
+	>db
+
+create a collection:
+	1st way :- db.createCollection("employee");
+	2nd way :- db.employee.insert({name:"Raghav", city:"Bangalore", age:29})
+
+	db.department.insert({name:"CSE", city:"Bangalore"})
+	db.department.insert({name:"Finance", city:"Bangalore"})
+	db.department.insert({name:"Marketing", city:"Bangalore"})
+	db.department.insert({name:"Human Resource", city:"Bangalore"})
+	db.department.insert({name:"IT", city:"Bangalore"})
+
+Insert Data into collection :-
+
+	db.employee.insert({
+		"name": "Adam Gilchrist",
+		"age":31,
+		"zone": "East",
+		"department":"Marketing"
+	});
+
+	db.employee.insert({
+		"name": "Rick Pointing",
+		"age":25,
+		"zone": "West",
+		"department":"Finance"
+	});
+------------------------------------------------
+insertOne :-
+
+	db.employee.insertOne({
+		"name": "Mathew Hayden",
+		"age": 36,
+		"zone": "East",
+		"department":"Technology"
+	});
+------------------------------------------------
+insertMany :-
+	db.client.insertMany([
+	{
+		"name": "Abc Tech",
+		"country":"Australia",
+		"department":"Marketing"
+	},
+	{
+		"name": "KK Consultants",
+		"country":"England",
+		"department":"Human Resource"
+	},
+	{
+		"name": "Insights Limited",
+		"country":"India",
+		"department":"IT"
+	}
+	])
+------------------------------------------------
+
+DB Queries :-
+-------------
+> db.employee.find({zone:"East"}).pretty()
+> db.employee.find({"age":{$eq: 25}}).pretty()
+> db.employee.find({"age":{$not: {$eq: 25}}}).pretty()
+
+
+Sorting :-
+	Ascending :-
+		> db.employee.find().sort({'age': -1}).pretty();
+	Descending :-
+		> db.employee.find().sort({'age': 1}).pretty();
+
+Limit :-
+	> db.employee.find().limit(2)
+
+And :-
+	> db.employee.find({$and : [{"zone":"East"}, {"age":31}]}).pretty();
+	> db.employee.find({$and : [{"zone":"East"}, {"age":36}]}).pretty();
+
+Or :-
+	> db.employee.find({$or : [{"zone":"East"}, {"age":26}]}).pretty();
+
+Searching :-
+------------
+Dropping Index:-
+	> db.employee.dropIndex("age_text")
+	> db.employee.getIndexes();
+
+
+Step 1:- Create index
+	> db.employee.createIndex({name:"text", zone:"text", department:"text"})
+	> db.employee.createIndex({age:"number"})
+
+Step 2:- Query
+	> db.employee.find({$text:{$search:"Technology"}}).pretty()
+	> db.employee.find({$text:{$search:"26"}}).pretty() 
+
+Discussed Topics :-
+--------------------
