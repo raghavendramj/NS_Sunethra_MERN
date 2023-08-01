@@ -1,11 +1,8 @@
 MongoDB Notes
 ---------------
 MongoDB is a document database. It stores data in a type of JSON format called BSON.
-
 MongoDB is a No SQL database.
-
 It is an open-source, cross-platform, document-oriented database written in C++.
-
 
 Purpose of Building MongoDB
 ------------------------------
@@ -50,8 +47,6 @@ These are some important features of MongoDB:
 	Built in replication for high availability
 	Now a day many companies using MongoDB to create new types of applications, improve performance and availability.
 
-
-
 Databases can be divided in 3 types
 ------------------------------------
 	RDBMS (Relational Database Management System)
@@ -70,7 +65,6 @@ Advantages of NoSQL
 	It provides fast performance.
 	It provides horizontal scalability.
 
-
 MongoDB Advantages
 ------------------
 	MongoDB is schema less. It is a document database in which one collection holds different documents.
@@ -81,20 +75,18 @@ MongoDB Advantages
 	It is very easy to scale.
 	It uses internal memory for storing working sets and this is the reason of its fast access.
 
-
 MongoDB Datatypes
 -----------------
-String	String is the most commonly used datatype. It is used to store data. A string must be UTF 8 valid in mongodb.
-Integer	Integer is used to store the numeric value. It can be 32 bit or 64 bit depending on the server you are using.
-Boolean	This datatype is used to store boolean values. It just shows YES/NO values.
-Double	Double datatype stores floating point values.
-Min/Max Keys	This datatype compare a value against the lowest and highest bson elements.
-Arrays	This datatype is used to store a list or multiple values into a single key.
-Object	Object datatype is used for embedded documents.
-Null	It is used to store null values.
-Symbol	It is generally used for languages that use a specific type.
-Date	This datatype stores the current date or time in unix time format. It makes you possible to specify your own date time by creating object of date and pass the value of date, month, year into it.
-
+	String	String is the most commonly used datatype. It is used to store data. A string must be UTF 8 valid in mongodb.
+	Integer	Integer is used to store the numeric value. It can be 32 bit or 64 bit depending on the server you are using.
+	Boolean	This datatype is used to store boolean values. It just shows YES/NO values.
+	Double	Double datatype stores floating point values.
+	Min/Max Keys	This datatype compare a value against the lowest and highest bson elements.
+	Arrays	This datatype is used to store a list or multiple values into a single key.
+	Object	Object datatype is used for embedded documents.
+	Null	It is used to store null values.
+	Symbol	It is generally used for languages that use a specific type.
+	Date	This datatype stores the current date or time in unix time format. It makes you possible to specify your own date time by creating object of date and pass the value of date, month, year into it.
 
 Data Modeling in MongoDB
 ------------------------
@@ -121,131 +113,51 @@ Data Modeling in MongoDB
 	}
 }
 
-
 https://www.mongodb.com/try/download/community
 
 Start the MongoDB:-
-
+------------------
 Step1 :- Start the Daemon first: mongoD
 Step2 :- Start the mongo : mongo
 
-
 Create Database :-
-	>use DATABASE_NAME
-	ex:- use sunethra
+------------------
+Syntax :- use <DB_NAME>;
+Ex:-	use entertainment;
 
-check the currently selected database
-	>db
+Drop Database :-
+----------------
+db.dropDatabase()
+{ "ok" : 1 }
 
-create a collection:
-	1st way :- db.createCollection("employee");
-	2nd way :- db.employee.insert({name:"Raghav", city:"Bangalore", age:29})
+Create Collection :-
+----------------
+db.createCollection(name, options)
 
-	db.department.insert({name:"CSE", city:"Bangalore"})
-	db.department.insert({name:"Finance", city:"Bangalore"})
-	db.department.insert({name:"Marketing", city:"Bangalore"})
-	db.department.insert({name:"Human Resource", city:"Bangalore"})
-	db.department.insert({name:"IT", city:"Bangalore"})
+Way 1:- Just create empty collection
+	> use entertainment;
+	> db.createCollection("movie", { capped : true, size : 6142800, max : 10000 })
 
-Insert Data into collection :-
+Way 2:- Create collection and insert a value!
+	> use entertainment;
+	> db.movie.insert({name:"Avatar"})
 
-	db.employee.insert({
-		"name": "Adam Gilchrist",
-		"age":31,
-		"zone": "East",
-		"department":"Marketing"
-	});
-
-	db.employee.insert({
-		"name": "Rick Pointing",
-		"age":25,
-		"zone": "West",
-		"department":"Finance"
-	});
-------------------------------------------------
-insertOne :-
-
-	db.employee.insertOne({
-		"name": "Mathew Hayden",
-		"age": 36,
-		"zone": "East",
-		"department":"Technology"
-	});
-------------------------------------------------
-insertMany :-
-	db.client.insertMany([
-	{
-		"name": "Abc Tech",
-		"country":"Australia",
-		"department":"Marketing"
-	},
-	{
-		"name": "KK Consultants",
-		"country":"England",
-		"department":"Human Resource"
-	},
-	{
-		"name": "Insights Limited",
-		"country":"India",
-		"department":"IT"
-	}
-	])
-------------------------------------------------
-
-DB Queries :-
--------------
-> db.employee.find({zone:"East"}).pretty()
-> db.employee.find({"age":{$eq: 25}}).pretty()
-> db.employee.find({"age":{$not: {$eq: 25}}}).pretty()
-
-
-Sorting :-
-	Ascending :-
-		> db.employee.find().sort({'age': -1}).pretty();
-	Descending :-
-		> db.employee.find().sort({'age': 1}).pretty();
-
-Limit :-
-	> db.employee.find().limit(2)
-
-And :-
-	> db.employee.find({$and : [{"zone":"East"}, {"age":31}]}).pretty();
-	> db.employee.find({$and : [{"zone":"East"}, {"age":36}]}).pretty();
-
-Or :-
-	> db.employee.find({$or : [{"zone":"East"}, {"age":26}]}).pretty();
-
-Searching :-
-
-	Dropping Index:-
-
-	> db.employee.dropIndex("age_text")
-	> db.employee.getIndexes();
-
-
-	Step 1:- Create index
-	> db.employee.createIndex({name:"text", zone:"text", department:"text"})
-	> db.employee.createIndex({age:"number"})
-
-	Step 2:- Query
-	> db.employee.find({$text:{$search:"Technology"}}).pretty()
-	> db.employee.find({$text:{$search:"26"}}).pretty()
-
-
-	$gt
-	$gte
-	$in
-	$lt
-	$lte
-	$ne
-	$nin >db.employee.find({age: {$nin:[26]}})
-
-
-Discussed Topics :-
+Drop Collection :-
+----------------
+Syntax :- db.COLLECTION_NAME.drop()
+	> use entertainment;
+	> show collections;
+	> movie
+	> db.movie.drop()
+	
+	
+Querying Documents :- 
 --------------------
 
 insertOne()
 -----------
+Syntax :- >db.COLLECTION_NAME.insertOne(document)
+
 db.posts.insertOne({
   title: "Learning Mongo",
   body: "Its always fun.",
@@ -257,6 +169,7 @@ db.posts.insertOne({
 
 insertMany()
 -----------
+Syntax :- >db.COLLECTION_NAME.insertMany([document1, document2])
 db.posts.insertMany([
   {
     title: "React JS",
@@ -284,15 +197,110 @@ db.posts.insertMany([
   }
 ])
 
+insert()
+---------
+Syntax :- >db.COLLECTION_NAME.insert(document1)
+db.posts.insert([
+  {
+    title: "React JS",
+    body: "Lightweight framework",
+    category: "Event",
+    likes: 2,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Node JS",
+    body: "JavaScript framework",
+    category: "Technology",
+    likes: 3,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Express JS",
+    body: "NodeJs framework",
+    category: "Event",
+    likes: 4,
+    tags: ["news", "events"],
+    date: Date()
+  }
+])
+
+
+Where Clause Equivalents in MongoDB
+-----------------------------------
+Equality
+--------
+Syntax :- {<key>:{$eg:<value>}}
+Ex :- db.posts.find({title:"Learning Python"}).pretty()
+
+Less Than
+----------
+Syntax :- {<key>:{$lt:<value>}}
+Ex :- db.posts.find({likes:{$gt:4}}, {_id:0, title:1, likes:1})
+
+Less Than Equals
+----------------
+Syntax :- {<key>:{$lte:<value>}}
+Ex :- db.posts.find({likes:{$gt:4}}, {_id:0, title:1, likes:1})
+
+Greater Than
+------------
+Syntax :- {<key>:{$lte:<value>}}
+Ex :- db.posts.find({likes:{$gt:4}}, {_id:0, title:1, likes:1})
+
+Greater Than Equals
+-------------------
+Syntax :- {<key>:{$lte:<value>}}
+Ex :- db.posts.find({likes:{$gte:4}}, {_id:0, title:1, likes:1})
+
+Not Equals
+-----------
+Syntax :- {<key>:{$lte:<value>}}
+Ex :- db.posts.find({likes:{$ne:4}}, {_id:0, title:1, likes:1})
+
+
+Values in an array
+-------------------
+Syntax :- {<key>:{$in:[<value1>, <value2>,……<valueN>]}}
+Ex :- db.posts.find({title:{$in:["Node JS", "React JS"]}}, {_id:0, title:1})
+
+
+Values not in an array
+-------------------
+Syntax :- {<key>:{$nin:[<value1>, <value2>,……<valueN>]}}
+Ex :- db.posts.find({title:{$nin:["Node JS", "React JS"]}}, {_id:0, title:1})
+
+
+AND in MongoDB
+--------------
+Syntax :- db.posts.find({ $and: [ {<key1>:<value1>}, { <key2>:<value2>} ] })
+Ex:- db.posts.find({$and:[{"title" : "Express JS"},  {"likes" : 5}]})
+
+
+
+OR in MongoDB
+--------------
+Syntax :- db.posts.find({ $or: [ {<key1>:<value1>}, { <key2>:<value2>} ] })
+Ex:- db.posts.find({$or:[{"title" : "Express JS"},  {"likes" : 3}]})
+
+
+Using AND and OR Together
+-------------------------
+Syntax :- db.posts.find(<key1>:{$gt:<value1>}, { $or: [ {<key2>:<value2>}, { <key3>:<value3>} ] })
+Ex:- db.posts.find({"likes" : {$gt: 3}, $or:[{"category" : "Event"}]})
+
 
 find()
 -----------
-db.posts.find()
+Syntax :- db.COLLECTION_NAME.find()
+Ex:- db.posts.find()
 
 findOne()
 -----------
-db.posts.findOne()
-
+Syntax :- db.COLLECTION_NAME.findOne()
+Ex:- db.posts.findOne()
 
 Querying Data
 -----------
@@ -306,8 +314,75 @@ db.posts.find({}, {title: 1, date: 1})
 Note: You cannot use both 0 and 1 in the same object. The only exception is the _id field. You should either specify the fields you would like to include or the fields you would like to exclude.
 
 
+update :-
+--------
+>db.COLLECTION_NAME.update(SELECTION_CRITERIA, UPDATED_DATA)
+
+save()
+------
+db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})
+
+
+findOneAndUpdate()
+------------------
+db.COLLECTION_NAME.findOneAndUpdate(SELECTIOIN_CRITERIA, UPDATED_DATA)
+
+db.empDetails.insertMany(
+	[
+		{
+			First_Name: "Radhika",
+			Last_Name: "Sharma",
+			Age: "26",
+			e_mail: "radhika_sharma.123@gmail.com",
+			phone: "9000012345"
+		},
+		{
+			First_Name: "Rachel",
+			Last_Name: "Christopher",
+			Age: "27",
+			e_mail: "Rachel_Christopher.123@gmail.com",
+			phone: "9000054321"
+		},
+		{
+			First_Name: "Fathima",
+			Last_Name: "Sheik",
+			Age: "24",
+			e_mail: "Fathima_Sheik.123@gmail.com",
+			phone: "9000054321"
+		},
+		{
+			First_Name: "Vaibhav",
+			Last_Name: "Yagneshwar",
+			Age: "26",
+			e_mail: "Vaibhav.Yagneshwar@gmail.com",
+			phone: "5642512454"
+		},
+		{
+			First_Name: "Rahul",
+			Last_Name: "Anand",
+			Age: "27",
+			e_mail: "Rahul.anand.123@gmail.com",
+			phone: "7862121212"
+		},
+		{
+			First_Name: "Raghav",
+			Last_Name: "MJ",
+			Age: "24",
+			e_mail: "raghavmj@gmail.com",
+			phone: "9565656111"
+		}
+	]
+)
+
+db.empDetails.findOneAndUpdate(
+	{First_Name: 'Radhika'},
+	{ $set: { Age: '30',e_mail: 'radhika_newemail@gmail.com'}}
+)
+
+
 updateOne()
 -----------
+>db.COLLECTION_NAME.updateOne(<filter>, <update>)
 
 db.posts.find( { title: "Learning Mongo" } )
 db.posts.updateOne( { title: "Learning Mongo" }, { $set: { likes: 2 } } )
@@ -350,10 +425,8 @@ db.posts.updateOne(
 )
 
 updateMany()
------------------------------------------------
+------------
 db.posts.updateMany({}, { $inc: { likes: 1 } })
-
-
 
 MongoDB – Field Update Operators
 --------------------------------
@@ -363,7 +436,64 @@ $min			This operator is used only to update the field if the specified value is 
 $max			This operator is used only to update the field if the specified value is greater than the existing field value.
 $mul			This operator is used to multiply the value of the field by the specified amount.
 $rename			This operator is used to rename a field.
-$setOnInsert	This operator is used to set the value of a field if an update results in an insert of a document.
-				It has no effect on update operations that modify existing documents.
+$setOnInsert	This operator is used to set the value of a field if an update results in an insert of a document. It has no effect on update operations that modify existing documents.
 
 
+remove()
+--------
+Syntax :- db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)
+Ex:- db.empDetails.remove({"First_Name" : "Radhika"})
+
+Remove One:-
+------------
+If there are multiple records and you want to delete only the first record, then set justOne parameter in remove() method.
+	Syntax :- db.COLLECTION_NAME.remove(DELETION_CRITERIA,1)
+	Ex :- db.empDetails.remove({"First_Name" : "Radhika"}, 1)
+
+Remove All Documents
+---------------------
+If you don't specify deletion criteria, then MongoDB will delete whole documents from the collection. This is equivalent of SQL's truncate command.
+	Syntax :- db.COLLECTION_NAME.remove({})
+	Ex :- db.empDetails.remove({})
+
+The Limit() Method
+------------------
+Syntax :- db.COLLECTION_NAME.find().limit(NUMBER)
+Ex:- db.empDetails.find().limit(2)
+
+The skip() Method
+-----------------
+Syntax :- >db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+Ex:- db.empDetails.find().limit(2).skip(3)
+
+
+The sort() Method
+-----------------
+Syntax:- >db.COLLECTION_NAME.find().sort({KEY:1})
+Ex:- db.empDetails.find().sort({"title":1})
+
+The createIndex() Method
+------------------------
+Syntax :- >db.COLLECTION_NAME.createIndex({KEY:1})
+Ex:-  db.empDetails.createIndex({First_Name:"text"})
+	  db.empDetails.find({$text:{$search:"Fathima"}})
+	  
+
+Exercise :-
+-----------
+Create Database :- 
+Create collections.
+
+
+Students
+	-> rollno, name, class
+
+Class
+	-> no, room_no, section
+
+Teacher
+	-> no, class_no, subject
+
+Subject
+	-> no, title, 
+----------------------------------------
