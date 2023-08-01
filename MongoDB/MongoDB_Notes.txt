@@ -2,7 +2,7 @@ MongoDB Notes
 ---------------
 MongoDB is a document database. It stores data in a type of JSON format called BSON.
 
-MongoDB is a No SQL database. 
+MongoDB is a No SQL database.
 
 It is an open-source, cross-platform, document-oriented database written in C++.
 
@@ -49,28 +49,28 @@ These are some important features of MongoDB:
 	Auto-sharding for horizontal scalability
 	Built in replication for high availability
 	Now a day many companies using MongoDB to create new types of applications, improve performance and availability.
-	
-	
+
+
 
 Databases can be divided in 3 types
 ------------------------------------
 	RDBMS (Relational Database Management System)
 	OLAP (Online Analytical Processing)
 	NoSQL (recently developed database)
-	
+
 NoSQL Database
 ---------------
 	NoSQL Database is used to refer a non-SQL or non relational database.
 
 	It provides a mechanism for storage and retrieval of data other than tabular relations model used in relational databases. NoSQL database doesn't use tables for storing data. It is generally used to store big data and real-time web applications.
-	
+
 Advantages of NoSQL
 -------------------
 	It supports query language.
 	It provides fast performance.
 	It provides horizontal scalability.
-	
-	
+
+
 MongoDB Advantages
 ------------------
 	MongoDB is schema less. It is a document database in which one collection holds different documents.
@@ -80,8 +80,8 @@ MongoDB Advantages
 	MongoDB provides the facility of deep query because it supports a powerful dynamic query on documents.
 	It is very easy to scale.
 	It uses internal memory for storing working sets and this is the reason of its fast access.
-	
-	
+
+
 MongoDB Datatypes
 -----------------
 String	String is the most commonly used datatype. It is used to store data. A string must be UTF 8 valid in mongodb.
@@ -130,32 +130,32 @@ Step1 :- Start the Daemon first: mongoD
 Step2 :- Start the mongo : mongo
 
 
-Create Database :- 
-	>use DATABASE_NAME  
+Create Database :-
+	>use DATABASE_NAME
 	ex:- use sunethra
 
 check the currently selected database
 	>db
-	
-create a collection: 
+
+create a collection:
 	1st way :- db.createCollection("employee");
 	2nd way :- db.employee.insert({name:"Raghav", city:"Bangalore", age:29})
-	
+
 	db.department.insert({name:"CSE", city:"Bangalore"})
 	db.department.insert({name:"Finance", city:"Bangalore"})
 	db.department.insert({name:"Marketing", city:"Bangalore"})
 	db.department.insert({name:"Human Resource", city:"Bangalore"})
 	db.department.insert({name:"IT", city:"Bangalore"})
-	
-Insert Data into collection :- 
+
+Insert Data into collection :-
 
 	db.employee.insert({
 		"name": "Adam Gilchrist",
 		"age":31,
 		"zone": "East",
 		"department":"Marketing"
-	}); 
-	
+	});
+
 	db.employee.insert({
 		"name": "Rick Pointing",
 		"age":25,
@@ -172,7 +172,7 @@ insertOne :-
 		"department":"Technology"
 	});
 ------------------------------------------------
-insertMany :- 
+insertMany :-
 	db.client.insertMany([
 	{
 		"name": "Abc Tech",
@@ -199,13 +199,13 @@ DB Queries :-
 > db.employee.find({"age":{$not: {$eq: 25}}}).pretty()
 
 
-Sorting :- 
-	Ascending :- 
+Sorting :-
+	Ascending :-
 		> db.employee.find().sort({'age': -1}).pretty();
-	Descending :-  
+	Descending :-
 		> db.employee.find().sort({'age': 1}).pretty();
 
-Limit :- 
+Limit :-
 	> db.employee.find().limit(2)
 
 And :-
@@ -213,25 +213,25 @@ And :-
 	> db.employee.find({$and : [{"zone":"East"}, {"age":36}]}).pretty();
 
 Or :-
-	> db.employee.find({$or : [{"zone":"East"}, {"age":26}]}).pretty(); 
-	
-Searching :- 
+	> db.employee.find({$or : [{"zone":"East"}, {"age":26}]}).pretty();
 
-	Dropping Index:- 
-	
+Searching :-
+
+	Dropping Index:-
+
 	> db.employee.dropIndex("age_text")
 	> db.employee.getIndexes();
-	
-	
-	Step 1:- Create index 
-	> db.employee.createIndex({name:"text", zone:"text", department:"text"}) 
+
+
+	Step 1:- Create index
+	> db.employee.createIndex({name:"text", zone:"text", department:"text"})
 	> db.employee.createIndex({age:"number"})
-	
+
 	Step 2:- Query
 	> db.employee.find({$text:{$search:"Technology"}}).pretty()
 	> db.employee.find({$text:{$search:"26"}}).pretty()
-	
-	
+
+
 	$gt
 	$gte
 	$in
@@ -239,4 +239,131 @@ Searching :-
 	$lte
 	$ne
 	$nin >db.employee.find({age: {$nin:[26]}})
-	
+
+
+Discussed Topics :-
+--------------------
+
+insertOne()
+-----------
+db.posts.insertOne({
+  title: "Learning Mongo",
+  body: "Its always fun.",
+  category: "News",
+  likes: 1,
+  tags: ["news", "events"],
+  date: Date()
+})
+
+insertMany()
+-----------
+db.posts.insertMany([
+  {
+    title: "React JS",
+    body: "Lightweight framework",
+    category: "Event",
+    likes: 2,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Node JS",
+    body: "JavaScript framework",
+    category: "Technology",
+    likes: 3,
+    tags: ["news", "events"],
+    date: Date()
+  },
+  {
+    title: "Express JS",
+    body: "NodeJs framework",
+    category: "Event",
+    likes: 4,
+    tags: ["news", "events"],
+    date: Date()
+  }
+])
+
+
+find()
+-----------
+db.posts.find()
+
+findOne()
+-----------
+db.posts.findOne()
+
+
+Querying Data
+-----------
+db.posts.find( {category: "News"} )
+
+Projection
+-----------
+db.posts.find({}, {title: 1, date: 1})
+	Notice that the _id field is also included. This field is always included unless specifically excluded.
+	We use a 1 to include a field and 0 to exclude a field.
+Note: You cannot use both 0 and 1 in the same object. The only exception is the _id field. You should either specify the fields you would like to include or the fields you would like to exclude.
+
+
+updateOne()
+-----------
+
+db.posts.find( { title: "Learning Mongo" } )
+db.posts.updateOne( { title: "Learning Mongo" }, { $set: { likes: 2 } } )
+
+
+Only update :-
+-------------
+db.posts.updateOne(
+  { title: "Learning Python" },
+  {
+    $set:
+      {
+        title: "Learning Python",
+        body: "Its used for data science!",
+        category: "Event",
+        likes: 5,
+        tags: ["news", "events"],
+        date: Date()
+      }
+  }
+)
+
+Update if exists otherwise create new:- { upsert: true }
+---------------------------------------------------------
+
+db.posts.updateOne(
+  { title: "Learning Python" },
+  {
+    $set:
+      {
+        title: "Learning Python",
+        body: "Its used for data science!",
+        category: "Event",
+        likes: 5,
+        tags: ["news", "events"],
+        date: Date()
+      }
+  },
+  { upsert: true }
+)
+
+updateMany()
+-----------------------------------------------
+db.posts.updateMany({}, { $inc: { likes: 1 } })
+
+
+
+MongoDB – Field Update Operators
+--------------------------------
+$currentDate	This operator is used to set the value of a field to current date, either as a Date or a Timestamp.
+$inc			This operator is used to increment the value of the field by the specified amount.
+$min			This operator is used only to update the field if the specified value is less than the existing field value
+$max			This operator is used only to update the field if the specified value is greater than the existing field value.
+$mul			This operator is used to multiply the value of the field by the specified amount.
+$rename			This operator is used to rename a field.
+$setOnInsert	This operator is used to set the value of a field if an update results in an insert of a document.
+				It has no effect on update operations that modify existing documents.
+
+
