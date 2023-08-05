@@ -16,3 +16,4 @@ async function getPosts() {
 }
 
 getPosts();
+   
