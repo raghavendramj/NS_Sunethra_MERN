@@ -460,6 +460,7 @@ The Limit() Method
 ------------------
 Syntax :- db.COLLECTION_NAME.find().limit(NUMBER)
 Ex:- db.empDetails.find().limit(2)
+<<<<<<< HEAD
 
 The skip() Method
 -----------------
@@ -493,6 +494,25 @@ Class
 
 Teacher
 	-> no, class_no, subject
+=======
+
+The skip() Method
+-----------------
+Syntax :- >db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+Ex:- db.empDetails.find().limit(2).skip(3)
+
+
+The sort() Method
+-----------------
+Syntax:- >db.COLLECTION_NAME.find().sort({KEY:1})
+Ex:- db.empDetails.find().sort({"title":1})
+
+The createIndex() Method
+------------------------
+Syntax :- >db.COLLECTION_NAME.createIndex({KEY:1})
+Ex:-  db.empDetails.createIndex({First_Name:"text"})
+	  db.empDetails.find({$text:{$search:"Fathima"}})
+>>>>>>> 2b0f890be56a8082a0721ee0568893df3c7b4d53
 
 Subject
 	-> no, title, 

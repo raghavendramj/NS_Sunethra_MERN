@@ -16,3 +16,6 @@ async function getPosts() {
 }
 
 getPosts();
+
+
+cd C:\Users\Raghavendra M J\OneDrive\Desktop\Online_Classes\NewTonSchool\SunethraBatch\MongoDB    

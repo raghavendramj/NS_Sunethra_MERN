@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2b0f890be56a8082a0721ee0568893df3c7b4d53
 Create Database :-
 	>use DATABASE_NAME
 	ex:- use sunethra
