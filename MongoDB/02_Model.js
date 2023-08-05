@@ -14,9 +14,8 @@ const postSchema = new mongoose.Schema({
 //Student Model Schema
 const studentSchema = new mongoose.Schema({
   name: String,
-  class: String,
-  section: String,
-  age: Number,
+  enroll: Number,
+  courseId: Number,
 });
 
 //Course Model Schema
@@ -35,5 +34,5 @@ const Course = mongoose.model("Course", courseSchema);
 module.exports = {
   Post,
   Student,
-  Course
+  Course,
 };
