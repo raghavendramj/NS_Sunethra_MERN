@@ -11,7 +11,8 @@ async function getPosts() {
   const whereObject = {
     title: "React JS",
   };
-  const posts = await Post.find(whereObject);
+  // const posts = await Post.find({});
+  const posts = await Post.find({}, {title: 1});
   console.log("posts -> ", posts);
 }
 
