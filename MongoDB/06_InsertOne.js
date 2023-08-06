@@ -13,23 +13,23 @@ function deleteAndCreate() {
   insertOne(data1);
 }
 
-async function insertOne() {
-  Student.create(data1)
+async function insertOne(data) {
+  Student.create(data)
     .then((val) => console.log("Student data inserted successfully...", val))
     .catch((err) => console.log("Deletion failed ...", err));
 }
 
 async function deleteOne(data) {
-  Student.deleteOne(data1)
+  Student.deleteOne(data)
     .then((val) => console.log("Student data deleted successfully...", val))
     .catch((err) => console.log("Insertion failed ...", err));
 }
 
-insertOne();
+deleteAndCreate();
 
 async function fetchStudents() {
   const selectQuery = { _id: 0, name: 1, courseId: 1 };
-  const students = await Student.find({}).select(selectQuery);
+  const students = await Student.find().select(selectQuery);
   console.log("Students fetched ->", students);
 }
 

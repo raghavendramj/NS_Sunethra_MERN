@@ -9,6 +9,7 @@ async function getStudents(fetchQuery, selectQuery) {
 
 function invokeGetStudents() {
   const selectQuery = { _id: 0, name: 1, courseId: 1 };
+  
   const findQueryEq = { courseId: { $eq: 2 } };
   const findQueryGt = { courseId: { $gt: 2 } };
   const findQuerylt = { courseId: { $lt: 2 } };
