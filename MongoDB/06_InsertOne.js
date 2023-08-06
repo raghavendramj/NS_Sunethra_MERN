@@ -16,13 +16,13 @@ function deleteAndCreate() {
 async function insertOne(data) {
   Student.create(data)
     .then((val) => console.log("Student data inserted successfully...", val))
-    .catch((err) => console.log("Deletion failed ...", err));
+    .catch((err) => console.log("Insertion failed ...", err));
 }
 
 async function deleteOne(data) {
   Student.deleteOne(data)
     .then((val) => console.log("Student data deleted successfully...", val))
-    .catch((err) => console.log("Insertion failed ...", err));
+    .catch((err) => console.log("Deletion failed ...", err));
 }
 
 deleteAndCreate();

@@ -9,7 +9,14 @@ function getDBConnection() {
   return connectionPromise;
 }
 
+async function fetchObjects(Object, findQuery) {
+  const selectQuery = { _id: 0, name: 1, courseId: 1 };
+  const students = await Object.find(findQuery).select(selectQuery);
+  console.log("Objects fetched ->", students);
+}
+
 //Export the model objects!
 module.exports = {
   getDBConnection,
+  fetchObjects
 };
