@@ -5,7 +5,7 @@ getDBConnection();
 async function deleteOne(id) {
   Student.deleteOne({ _id: id })
     .then((val) => {
-      console.log("deleteOne::Student data deleted successfully...", val);
+      console.log("---> deleteOne::Student data deleted successfully...", val);
       fetchObjects(Student, {});
     })
     .catch((err) => console.log("Deletion failed ...", err));
@@ -18,7 +18,7 @@ async function removeMany(courseIdPassed) {
   const selectQuery = { _id: 0, name: 1, courseId: 1 };
   const students = await Student.find(whereClause).select(selectQuery);
   console.log("Found the object :- ", students);
-  console.log("-----------------------------------------")
+  console.log("-----------------------------------------");
 
   Student.deleteMany(whereClause)
     .then((val) => {
@@ -28,16 +28,18 @@ async function removeMany(courseIdPassed) {
     .catch((err) => console.log("Deletion failed ...", err));
 }
 
-// removeMany(1);  
-
+// removeMany(1);
 
 async function findByIdAndRemoveStudent(id) {
-    Student.findByIdAndRemove({ _id: id })
-      .then((val) => {
-        console.log("\n -----> findByIdAndRemoveStudent::Student data deleted successfully...", val);
-        fetchObjects(Student, {});
-      })
-      .catch((err) => console.log("Deletion failed ...", err));
-  }
-  
-  findByIdAndRemoveStudent("64cfd8100f2042b5dc760e82");
+  Student.findByIdAndRemove({ _id: id })
+    .then((val) => {
+      console.log(
+        "\n -----> findByIdAndRemoveStudent::Student data deleted successfully...",
+        val
+      );
+      fetchObjects(Student, {});
+    })
+    .catch((err) => console.log("Deletion failed ...", err));
+}
+
+findByIdAndRemoveStudent("64cfd8100f2042b5dc760e82");
