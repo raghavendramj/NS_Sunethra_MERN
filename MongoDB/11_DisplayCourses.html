@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>AJAX Intro</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function loadCourses() {
+        let xmlHttp = new XMLHttpRequest();
+        let url = "http://localhost:8100/courses/";
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send();
+        xmlHttp.onreadystatechange = () => {
+          if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            const coursesResponse = JSON.parse(xmlHttp.response);
+            console.log("Response success receivied :- ", coursesResponse);
+            let htmlData = coursesResponse
+              .map((eachCourse) => {
+                const deleteURL = `http://localhost:8100/courses/deleteCourse/${eachCourse._id}`;
+                return `<tr>
+                    <td>${eachCourse._id}</td>
+                    <td>${eachCourse.name}</td>
+                    <td>${eachCourse.category}</td> 
+                    <td>
+                      <button class="btn btn-danger">
+                        <a class="btn btn-danger" href="${deleteURL}">Delete Course</a>
+                      </button>
+                    </td> 
+                    <tr>`;
+              })
+              .join("");
+            document.querySelector("tbody").innerHTML = htmlData;
+            document.querySelector("#loadBtn").style.display = "none";
+          }
+        };
+      } 
+      
+    </script>
+  </head>
+  <body>
+    <h1>
+      <div class="container mt-3">
+        <h1>Manage Course Page</h1>
+        <a class="btn btn-primary" href="http://localhost:8100/courses/addCourse"> Add Course</a> 
+        <br />
+        <br />
+        <table class="table table-striped">
+          <thead>
+            <th>UserID</th>
+            <th>ID</th>
+            <th>title</th>
+            <th>Operations</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p></p>
+      </div>
+    </h1>
+  </body>
+  <script>loadCourses();</script>
+</html>

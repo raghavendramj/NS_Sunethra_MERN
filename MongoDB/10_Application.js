@@ -1,15 +1,15 @@
 const express = require("express");
-
-const app = express();
-app.use(express.json());
-
 const cors = require("cors");
-app.use(cors());
-
 const mongoose = require("mongoose");
 const { Course } = require("./02_Model");
-const databaseURL = mongoose.connect("mongodb://127.0.0.1/sunethra");
 
+//Middleware -> to receive the input as JSON
+const app = express();
+const router = express.Router();
+app.use(express.json());
+app.use(cors());
+
+mongoose.connect("mongodb://127.0.0.1/sunethra"); //connection happens -> stored in connection variable...
 const con = mongoose.connection;
 
 con.on("open", () => {
@@ -19,8 +19,6 @@ con.on("open", () => {
 app.get("/", (req, res) => {
   res.send("Welcome to full stack applcation");
 });
-
-const router = express.Router();
 
 app.use("/courses", router);
 router.get("/", async (req, res) => {

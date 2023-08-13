@@ -3,28 +3,23 @@ const { Course, Student } = require("./02_Model");
 getDBConnection();
 
 const courseData = [
-  {
-    _id: 1,
+  { 
     name: "Node JS",
     category: "BackEnd",
   },
-  {
-    _id: 2,
+  { 
     name: "MongoDB",
     category: "BackEnd",
   },
-  {
-    _id: 3,
+  { 
     name: "Javascript",
     category: "ScriptingLanguage",
   },
-  {
-    _id: 4,
+  { 
     name: "React JS",
     category: "FrontEnd",
   },
-  {
-    _id: 5,
+  { 
     name: "Vue JS",
     category: "FrontEnd",
   },
@@ -83,6 +78,6 @@ const studentData = [
   },
 ];
 
-Student.insertMany(studentData)
-  .then((value) => console.log("Students data saved successfully! ...", value))
-  .catch((error) => console.log("Failed...", error));
+// Student.insertMany(studentData)
+//   .then((value) => console.log("Students data saved successfully! ...", value))
+//   .catch((error) => console.log("Failed...", error));
