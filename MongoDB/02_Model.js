@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 //Post Model Schema
-const postSchema = new mongoose.Schema({
-  _id: Number,
+const postSchema = new mongoose.Schema({ 
   title: String,
   body: String,
   category: String,
@@ -19,8 +18,7 @@ const studentSchema = new mongoose.Schema({
 });
 
 //Course Model Schema
-const courseSchema = new mongoose.Schema({
-  _id: Number,
+const courseSchema = new mongoose.Schema({ 
   name: String,
   category: String,
 });
