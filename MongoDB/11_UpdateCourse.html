@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>Update Course</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update Course Form!</h1>
+      <a
+        class="btn btn-primary"
+        href="http://localhost:8100/courses/displaycourses"
+        >Go Back</a
+      >
+      <form action="http://localhost:8100/courses/modifyCourse" method="post">
+        <table>
+          <tr>
+            <td><label for="name">Course Name:- </label></td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                id="courseName"
+              />
+            </td>
+            <td>
+              <input
+                type="hidden"
+                class="form-control"
+                name="id"
+                id="courseId"
+                value=""
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="category">Category Name:- </label></td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                name="category"
+                id="category"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="reset" class="btn btn-warning" value="Clear All" />
+            </td>
+            <td>
+              <input
+                type="submit"
+                class="btn btn-primary"
+                value="Update Course"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      console.log("DOM fully loaded and parsed");
+      console.log("location.href ->", location.href.split("?")[1]);
+      let query = location.href.split("?")[1];
+      query = query.replace(/%20/g, " ");
+      let params = query.split("&");
+      console.log("params ->", params);
+
+      let courseId = params[0].split("=")[1];
+      let name = params[1].split("=")[1];
+      let category = params[2].split("=")[1]; 
+
+      document.getElementById("courseId").value = courseId;
+      document.getElementById("courseName").value = name;
+      document.getElementById("category").value = category;
+    });
+  </script>
+</html>

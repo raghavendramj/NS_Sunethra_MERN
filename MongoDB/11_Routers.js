@@ -11,6 +11,7 @@ coursesRouter.use((req, res, next) => {
   next();
 });
 
+//Get Method  -> Courses
 coursesRouter.get("/", async (req, res) => {
   try {
     const selectQuery = { _id: 0, name: 1, category: 1 };
@@ -22,27 +23,7 @@ coursesRouter.get("/", async (req, res) => {
   }
 });
 
-coursesRouter.get("/deleteCourse/:id", (req, res) => {
-  console.log("Delete course reached! :- ", req.params);
-  const courseId = req.params.id;
-  console.log("Delete course id :-  :- ", courseId);
-
-  Course.findByIdAndRemove({ _id: courseId })
-    .then((val) => {
-      console.log("\nCourse data deleted successfully...", val);
-      res.sendFile(__dirname + "/11_DisplayCourses.html");
-    })
-    .catch((err) => console.log("Deletion failed ...", err));
-});
-
-coursesRouter.get("/addCourse", (req, res) => {
-  res.sendFile(__dirname + "/11_AddCourse.html");
-});
-
-coursesRouter.get("/displaycourses", (req, res) => {
-  res.sendFile(__dirname + "/11_DisplayCourses.html");
-});
-
+//POST Method - Add a Course
 coursesRouter.use(express.json()); //Middleware in Node JS
 coursesRouter.use(express.urlencoded({ extended: true }));
 coursesRouter.post("/", async (req, res) => {
@@ -66,6 +47,75 @@ coursesRouter.post("/", async (req, res) => {
   } catch (err) {
     res.send("Error :-", err);
   }
+});
+
+//Delete Method -> Removes a Course
+coursesRouter.get("/deleteCourse/:id", (req, res) => {
+  console.log("Delete course reached! :- ", req.params);
+  const courseId = req.params.id;
+  console.log("Delete course id :-  :- ", courseId);
+
+  Course.findByIdAndRemove({ _id: courseId })
+    .then((val) => {
+      console.log("\nCourse data deleted successfully...", val);
+      res.sendFile(__dirname + "/11_DisplayCourses.html");
+    })
+    .catch((err) => console.log("Deletion failed ...", err));
+});
+
+//Update Method -> Modifies the course
+coursesRouter.use(express.json()); //Middleware in Node JS
+coursesRouter.use(express.urlencoded({ extended: true }));
+coursesRouter.post("/modifyCourse", (req, res) => {
+  try {
+    console.log("req.body :- ", req.body);
+
+    //Validation..
+    if (Object.keys(req.body).length === 0) {
+      res.send("Unable to update course as we received empty params");
+      return;
+    }
+
+    Course.findByIdAndUpdate(
+      { _id: req.body.id },
+      {
+        $set: {
+          name: req.body.name,
+          category: req.body.category,
+        },
+      },
+      { new: true } //Returns the modified data, without this you will get original data
+    ).then((nCourse) => {
+      console.log("Course updated successfully...", nCourse);
+      res.sendFile(__dirname + "/11_DisplayCourses.html");
+    });
+  } catch (err) {
+    res.send("Error :-", err);
+  }
+});
+
+//Update from Display Courses Handler
+coursesRouter.get("/updateCourse/:id", (req, res) => {
+  console.log("updateCourse :- ", req.params);
+  const courseId = req.params.id; 
+  Course.findById(courseId).then((val) => {
+    console.log("Course Fetched! Course :- ", val);
+    const params = "id=" + val.id + "&name=" + val.name + "&category=" + val.category;
+    res.redirect("/courses/udpateCourseForm?" + params);
+  });
+});
+
+//Util Methods
+coursesRouter.get("/udpateCourseForm", (req, res) => {
+  res.sendFile(__dirname + "/11_UpdateCourse.html");
+});
+
+coursesRouter.get("/addCourse", (req, res) => {
+  res.sendFile(__dirname + "/11_AddCourse.html");
+});
+
+coursesRouter.get("/displaycourses", (req, res) => {
+  res.sendFile(__dirname + "/11_DisplayCourses.html");
 });
 
 module.exports = coursesRouter;

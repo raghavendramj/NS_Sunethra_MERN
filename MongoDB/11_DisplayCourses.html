@@ -21,15 +21,13 @@
             let htmlData = coursesResponse
               .map((eachCourse) => {
                 const deleteURL = `http://localhost:8100/courses/deleteCourse/${eachCourse._id}`;
+                const updateURL = `http://localhost:8100/courses/updateCourse/${eachCourse._id}`;
                 return `<tr>
                     <td>${eachCourse._id}</td>
                     <td>${eachCourse.name}</td>
                     <td>${eachCourse.category}</td> 
-                    <td>
-                      <button class="btn btn-danger">
-                        <a class="btn btn-danger" href="${deleteURL}">Delete Course</a>
-                      </button>
-                    </td> 
+                    <td><a class="btn btn-danger" href="${deleteURL}">Delete Course</a></td> 
+                    <td><a class="btn btn-warning" href="${updateURL}">Update Course</a></td> 
                     <tr>`;
               })
               .join("");
@@ -38,7 +36,6 @@
           }
         };
       } 
-      
     </script>
   </head>
   <body>
