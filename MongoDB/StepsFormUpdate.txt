@@ -1,0 +1,30 @@
+STEP 1:-
+
+Display Courses
+	-> Added new Update Button/Link
+	const updateURL = `http://localhost:8100/courses/updateCourse/${eachCourse._id}`;
+	<td><a class="btn btn-warning" href="${updateURL}">Update Course</a></td> 
+	
+	
+STEP 2:-
+
+API For the url -> http://localhost:8100/courses/updateCourse/123 -> 
+	coursesRouter.get("/updateCourse/:id", (req, res) => {})
+	
+STEP 3:- 
+	Query with id and get existing course object
+	form url parameters out of the object
+	Load HTML Page with these params
+	"id=" + val.id + "&name=" + val.name + "&category=" + val.category;
+		-> set it the input fields respectively -> name :- name and category :-  category + Hidden field -> id :- id
+	
+	POST -> name, id, category -> 
+	Submit -> http://localhost:8100/courses/modifyCourse [POST]
+	
+STEP 4:-
+	name, id, category
+	invoke findByIdAndUpdate -> id, set new fields
+	
+	Success redirect back to 
+	 res.sendFile(__dirname + "/11_DisplayCourses.html");
+
