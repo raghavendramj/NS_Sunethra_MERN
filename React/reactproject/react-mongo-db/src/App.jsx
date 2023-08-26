@@ -1,20 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-import Courses from './components/courses';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './components/home';
-import UpdateCourse from './components/updatecourse';
+import CoursesRouters from './components/coursesrouters';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/courses/update/:id" element={<UpdateCourse />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <div className="container mt-5">
+        <h1>Newton School Integration Project</h1>
+        <Link className='btn btn-primary m-2' to="/">Home</Link>
+        <Link className='btn btn-primary m-2' to="/listCourses">Courses</Link>
+        <Link className='btn btn-primary m-2' to="/addNewCourse">Add New Course</Link>
+
+      </div>
+      <CoursesRouters />
+    </>
   );
 }
 

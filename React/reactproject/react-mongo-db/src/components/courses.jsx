@@ -26,7 +26,7 @@ export default function Courses() {
         <div className="App">
             <div className="container">
                 <div className="mt-4">
-                    <h1>Courses - React + Node + Express + Mongo DB Example</h1>
+                    <p>Courses - React + Node + Express + Mongo DB Example</p>
                     <table className="table table-striped">
                         <thead>
                             <tr>
@@ -45,6 +45,7 @@ export default function Courses() {
                                     <td>{eachCourse.name}</td>
                                     <td>{eachCourse.category}</td>
                                     <td><Link className='btn btn-warning' to={"/courses/update/" + eachCourse._id} >Update Course</Link></td>
+                                    <td><Link className='btn btn-danger' to={"http://localhost:8100/courses/deleteCourse/" + eachCourse._id} >Delete Course</Link></td>
                                 </tr>
                             }))}
                         </tbody>
