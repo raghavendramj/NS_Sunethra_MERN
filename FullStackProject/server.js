@@ -6,7 +6,7 @@ let db;
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", "./views");
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   const allAnimals = await db.collection("animals").find().toArray();
@@ -23,6 +23,11 @@ app.get("/", async (req, res) => {
 
 app.get("/admin", (req, res) => {
   res.render("admin");
+});
+
+app.get("/api/animals", async (req, res) => {
+  const allAnimals = await db.collection("animals").find().toArray();
+  res.json(allAnimals);
 });
 
 async function start() {
