@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { createRoot } from "react-dom";
+import { createRoot } from "react-dom";  
+import CreateNewForm from "./components/CreateNewForm";
+// import AnimalCard from "./components/AnimalCard";
 
 function App() {
   const [animals, setAnimals] = useState([]);
@@ -14,12 +16,13 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>Hello</h1>
-      <p>Hey, this is from React!</p>
+      <p>Hey, this is from React! JS</p>
+      <CreateNewForm setAnimals={setAnimals} />
       <ul>
         {animals.map(function (animal) {
-          return <AnimalCard name={animal.name} species={animal.species} />;
+          return <AnimalCard key={animal._id} name={animal.name} species={animal.species} />;
         })}
       </ul>
     </div>
