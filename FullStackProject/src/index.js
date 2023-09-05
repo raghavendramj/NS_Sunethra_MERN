@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom";  
 import CreateNewForm from "./components/CreateNewForm";
-// import AnimalCard from "./components/AnimalCard";
+import AnimalCard from "./components/AnimalCard";
 
 function App() {
   const [animals, setAnimals] = useState([]);
@@ -21,21 +21,26 @@ function App() {
       <p>Hey, this is from React! JS</p>
       <CreateNewForm setAnimals={setAnimals} />
       <ul>
-        {animals.map(function (animal) {
-          return <AnimalCard key={animal._id} name={animal.name} species={animal.species} />;
+        {animals.map(function (animal) { 
+          return <AnimalCard 
+          key={animal._id} 
+          id={animal._id} 
+          name={animal.name} 
+          species={animal.species}
+          setAnimals={setAnimals} />;
         })}
       </ul>
     </div>
   );
 }
 
-function AnimalCard(props) {
-  return (
-    <li>
-      Hi, My name is {props.name} and i am the {props.species}
-    </li>
-  );
-}
+// function AnimalCard(props) {
+//   return (
+//     <li>
+//       Hi, My name is {props.name} and i am the {props.species}
+//     </li>
+//   );
+// }
 
 const root = createRoot(document.querySelector("#app"));
 root.render(<App />);

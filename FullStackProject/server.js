@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 const express = require("express");
 let db;
 
@@ -17,10 +17,27 @@ app.get("/api/animals", async (req, res) => {
 app.post("/create-animal", async (req, res) => {
   console.log("POST Method data :- ", req.body);
   const newCreatedInfo = await db.collection("animals").insertOne(req.body);
-  const findQuery = { _id: new Object(newCreatedInfo.insertedId) };
+  const findQuery = { _id: new ObjectId(newCreatedInfo.insertedId) };
   const newAnimal = await db.collection("animals").findOne(findQuery);
   console.log("newAnimal POST -> ", newAnimal);
   res.send(newAnimal);
+});
+
+
+//Delete Animal
+app.delete("/animal/:id", async (req, res) => {
+  const idFromReq = req.params.id;
+  console.log("Delete Method data :- ", idFromReq);
+  const findQuery = { _id: new ObjectId(req.params.id) };
+  const foundAnimal = await db.collection("animals").findOne(findQuery);
+  console.log("foundAnimal -> ", foundAnimal);
+  if (foundAnimal) {
+    //delete it
+    db.collection("animals").deleteOne(findQuery);
+    res.send("Good job!");
+  } else {
+    res.send("No Object with matching id found!");
+  }
 });
 
 app.get("/admin", (req, res) => {
