@@ -40,6 +40,7 @@ app.delete("/animal/:id", async (req, res) => {
   }
 });
 
+
 app.get("/admin", (req, res) => {
   res.render("admin");
 });

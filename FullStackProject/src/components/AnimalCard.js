@@ -12,7 +12,7 @@ export default function AnimalCard(props) {
 
   return (
     <div className="card">
-      <div className="our-card-top">
+      {/* <div className="our-card-top">
         {isEditing && (
           <div className="our-custom-input">
             <div className="our-custom-input-interior">
@@ -20,7 +20,7 @@ export default function AnimalCard(props) {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="card-body">
         {!isEditing && (
