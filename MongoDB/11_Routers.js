@@ -23,6 +23,20 @@ coursesRouter.get("/", async (req, res) => {
   }
 });
 
+//Get Method  -> Course by ID
+coursesRouter.get("/:id", async (req, res) => {
+  console.log("Get course by Id reached! :- ", req.params);
+  const courseId = req.params.id;
+  console.log("Get course course id :-  :- ", courseId);
+  const findQueryEq = { _id: { $eq: courseId } };
+  try {
+    const courses = await Course.find(findQueryEq);
+    res.json(courses);
+  } catch (err) {
+    res.send("Error :-", err);
+  }
+});
+
 //POST Method - Add a Course
 coursesRouter.use(express.json()); //Middleware in Node JS
 coursesRouter.use(express.urlencoded({ extended: true }));
@@ -42,7 +56,8 @@ coursesRouter.post("/", async (req, res) => {
 
     newCourse.save().then((nCourse) => {
       console.log("Course added successfully...", nCourse);
-      res.sendFile(__dirname + "/11_DisplayCourses.html");
+      // res.sendFile(__dirname + "/11_DisplayCourses.html");
+      res.redirect("http://localhost:3000/listCourses");
     });
   } catch (err) {
     res.send("Error :-", err);
@@ -58,7 +73,8 @@ coursesRouter.get("/deleteCourse/:id", (req, res) => {
   Course.findByIdAndRemove({ _id: courseId })
     .then((val) => {
       console.log("\nCourse data deleted successfully...", val);
-      res.sendFile(__dirname + "/11_DisplayCourses.html");
+      // res.sendFile(__dirname + "/11_DisplayCourses.html");
+      res.redirect("http://localhost:3000/listCourses");
     })
     .catch((err) => console.log("Deletion failed ...", err));
 });
@@ -68,7 +84,8 @@ coursesRouter.use(express.json()); //Middleware in Node JS
 coursesRouter.use(express.urlencoded({ extended: true }));
 coursesRouter.post("/modifyCourse", (req, res) => {
   try {
-    console.log("req.body :- ", req.body);
+    console.log("req.body :- ", JSON.stringify(req.body));
+
 
     //Validation..
     if (Object.keys(req.body).length === 0) {
@@ -87,7 +104,8 @@ coursesRouter.post("/modifyCourse", (req, res) => {
       { new: true } //Returns the modified data, without this you will get original data
     ).then((nCourse) => {
       console.log("Course updated successfully...", nCourse);
-      res.sendFile(__dirname + "/11_DisplayCourses.html");
+      // res.sendFile(__dirname + "/11_DisplayCourses.html");
+      res.redirect("http://localhost:3000/listCourses");
     });
   } catch (err) {
     res.send("Error :-", err);
@@ -97,10 +115,11 @@ coursesRouter.post("/modifyCourse", (req, res) => {
 //Update from Display Courses Handler
 coursesRouter.get("/updateCourse/:id", (req, res) => {
   console.log("updateCourse :- ", req.params);
-  const courseId = req.params.id; 
+  const courseId = req.params.id;
   Course.findById(courseId).then((val) => {
     console.log("Course Fetched! Course :- ", val);
-    const params = "id=" + val.id + "&name=" + val.name + "&category=" + val.category;
+    const params =
+      "id=" + val.id + "&name=" + val.name + "&category=" + val.category;
     res.redirect("/courses/udpateCourseForm?" + params);
   });
 });

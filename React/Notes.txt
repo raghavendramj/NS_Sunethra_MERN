@@ -165,6 +165,14 @@ useContext
 		
 	Component4 -> function Component2(props){props.piValue}
 	
+	
+npm i react react-dom
+npm i @babel/core 
+npm i @babel/preset-react
+npm i babel-loader 
+npm i webpack webpack-cli 
+npm i webpack-node-externals
+npm i npm-run-all
 
 
 
