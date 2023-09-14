@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Colors Example</title>
+    <style>
+      div {
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid blue;
+        font-size: 20px;
+        font-weight: bolder;
+      }
+      .container-01 {
+        color: red;
+      }
+
+      /* Hexadecimal - RED/GREEN/BLUE
+        FF0000 -> RED
+        00FF00 -> GREEN
+        0000FF -> BLUE
+
+        FFFFFF ->  White
+        000000 ->  Black 
+      */
+
+      .container-02 {
+        color: #400bb0;
+      }
+
+      /* Range - RED/GREEN/BLUE
+        RED -> 255, 0, 0
+        GREEN -> 0, 255, 0 
+        BLUE -> 0, 0, 255
+        White -> 255, 255, 255
+        Black -> 0 0 0
+      */
+
+      .container-03 {
+        color: rgb(255, 0, 0);
+      }
+
+      .container-04 {
+        color: hsl(315, 84%, 45%);
+      }
+
+      .container-05 {
+        color: rgba(204, 35, 139, 0.7);
+      }
+
+      .container-06 {
+        color: hsla(150, 84%, 26%, 0.65);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Colors in Different Variations!</h1>
+    <div class="container-01">Color</div>
+    <div class="container-02">Hexadecimal</div>
+    <div class="container-03">RGB - Red Green Blue</div>
+    <div class="container-04">HSL - Hue Saturation Lightness</div>
+    <div class="container-05">RGBA - Red Green Blue + A</div>
+    <div class="container-06">HSLA - Hue Saturation Lightness + A</div>
+  </body>
+</html>
